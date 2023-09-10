@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _strafeModifier = 0.6f;
     [SerializeField] private float _sprintModifier = 2f;
     [SerializeField] private float _jumpPower = 200f;
+    [SerializeField] private LayerMask _whatIsWall;
+    [SerializeField] private LayerMask _whatIsGround;
     private bool _sprintActive = false;
 
     private Vector2 _movementInput;
@@ -26,6 +28,8 @@ public class PlayerController : MonoBehaviour
             else return 1f;
         } }
     public float JumpPower { get { return _jumpPower; } }
+    public LayerMask WhatIsWall { get { return _whatIsWall; } }
+    public LayerMask WhatIsGround { get { return _whatIsGround; } }
     public Vector2 MovementInput { get { return _movementInput; } }
     public Quaternion CameraForward { get {
             Quaternion flattened = Quaternion.LookRotation(-Vector3.up, _vCamTransform.forward) * Quaternion.Euler(-90f, 0, 0);
