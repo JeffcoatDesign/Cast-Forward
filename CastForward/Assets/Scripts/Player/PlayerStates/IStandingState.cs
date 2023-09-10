@@ -6,10 +6,10 @@ namespace PlayerStates
 {
     public class IStandingState : IPlayerState
     {
-        private PlayerController _playerController;
+        private PlayerController _pc;
         public void Enter (PlayerController playerController)
         {
-            _playerController = playerController;
+            _pc = playerController;
         }
 
         public void Exit ()
@@ -19,10 +19,12 @@ namespace PlayerStates
 
         public void HandleInput()
         {
-            if (_playerController == null)
+            if (_pc == null)
                 return;
-            if (_playerController.MovementInput.magnitude != 0)
-                _playerController.SetState(new IWalkingState());
+            if (_pc.jumpPressed)
+                _pc.SetState(new IJumpingState());
+            else if (_pc.MovementInput.magnitude != 0)
+                _pc.SetState(new IWalkingState());
         }
     }
 }

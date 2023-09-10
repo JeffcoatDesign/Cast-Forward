@@ -23,10 +23,12 @@ namespace PlayerStates {
                 return;
             if (_pc.MovementInput.magnitude == 0)
                 _pc.SetState(new IStandingState());
+            else if (_pc.jumpPressed)
+                _pc.SetState(new IJumpingState());
             else
             {
-                Vector3 inputVector = new (_pc.MovementInput.x * _pc.PlayerSpeed * _pc.StrafeModifier,
-                    0, _pc.MovementInput.y * _pc.PlayerSpeed);
+                Vector3 inputVector = new (_pc.MovementInput.x * _pc.PlayerSpeed * _pc.StrafeModifier * _pc.SprintSpeed,
+                    0, _pc.MovementInput.y * _pc.PlayerSpeed * _pc.SprintSpeed);
                 inputVector = _pc.CameraForward * inputVector;
                 _pc.rb.AddForce(inputVector, ForceMode.VelocityChange);
             }
