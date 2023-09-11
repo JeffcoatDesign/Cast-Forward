@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 namespace PlayerStates { 
@@ -10,7 +11,7 @@ namespace PlayerStates {
         private float _wallRunTimer = 0f;
         private float _wallCheckDistance = 0.7f;
         private float _minWallrunHeight = 1f;
-        private float _dismountForce = 3f;
+        private float _dismountForce = 5f;
         private RaycastHit leftWallHit;
         private RaycastHit RightWallHit;
         private bool WallLeft;
@@ -25,6 +26,7 @@ namespace PlayerStates {
         public void Exit ()
         {
             _pc.rb.useGravity = true;
+            _pc.PlayerVCam.m_Lens.Dutch = 0;
         }
         public void HandleInput()
         {
@@ -37,13 +39,15 @@ namespace PlayerStates {
             }
             else if ((WallLeft || WallRight) && _pc.MovementInput.y > 0 && AboveGround() && Time.time - _wallRunTimer < _pc.MaxWallRunTime)
             {
+                _pc.PlayerVCam.m_Lens.Dutch = WallRight ? _pc.WallDutchAngle : -_pc.WallDutchAngle;
+
                 Vector3 wallNormal = WallRight ? RightWallHit.normal : leftWallHit.normal;
                 Vector3 wallForward = Vector3.Cross(wallNormal, _pc.transform.up);
 
                 if ((_pc.transform.forward - wallForward).magnitude > (_pc.transform.forward - -wallForward).magnitude)
                     wallForward = -wallForward;
 
-                _pc.rb.AddForce(wallForward * _pc.PlayerSpeed * _pc.SprintSpeed, ForceMode.VelocityChange);
+                _pc.rb.AddForce(wallForward * _pc.PlayerSpeed * _pc.SprintSpeed, ForceMode.Force);
 
                 if (!(WallLeft && _pc.MovementInput.y > 0) && !(WallRight && _pc.MovementInput.y < 0))
                     _pc.rb.AddForce(-wallNormal * 100, ForceMode.Force);

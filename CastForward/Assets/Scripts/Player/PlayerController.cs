@@ -1,5 +1,5 @@
 using PlayerStates;
-
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,12 +7,13 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
 
-    [SerializeField] private Transform _vCamTransform;
+    [SerializeField] private CinemachineVirtualCamera _vCam;
     [SerializeField] private float _playerSpeed = 100f;
     [SerializeField] private float _strafeModifier = 0.6f;
     [SerializeField] private float _sprintModifier = 2f;
     [SerializeField] private float _jumpPower = 200f;
     [SerializeField] private float _maxWallRunTime = 4f;
+    [SerializeField] private float _wallDutchAngle = 10f;
     [SerializeField] private LayerMask _whatIsWall;
     [SerializeField] private LayerMask _whatIsGround;
     private bool _sprintActive = false;
@@ -30,11 +31,13 @@ public class PlayerController : MonoBehaviour
         } }
     public float JumpPower { get { return _jumpPower; } }
     public float MaxWallRunTime { get { return _maxWallRunTime; } }
+    public float WallDutchAngle { get { return _wallDutchAngle; } }
     public LayerMask WhatIsWall { get { return _whatIsWall; } }
     public LayerMask WhatIsGround { get { return _whatIsGround; } }
     public Vector2 MovementInput { get { return _movementInput; } }
+    public CinemachineVirtualCamera PlayerVCam { get { return _vCam; } }
     public Quaternion CameraForward { get {
-            Quaternion flattened = Quaternion.LookRotation(-Vector3.up, _vCamTransform.forward) * Quaternion.Euler(-90f, 0, 0);
+            Quaternion flattened = Quaternion.LookRotation(-Vector3.up, _vCam.transform.forward) * Quaternion.Euler(-90f, 0, 0);
             return flattened; } }
 
     IPlayerState _currentState = new IStandingState();

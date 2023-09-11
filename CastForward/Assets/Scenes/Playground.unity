@@ -1369,12 +1369,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1257478282}
-  _vCamTransform: {fileID: 507621729}
-  _playerSpeed: 0.6
+  _vCam: {fileID: 507621728}
+  _playerSpeed: 50
   _strafeModifier: 0.7
   _sprintModifier: 2
   _jumpPower: 1000
   _maxWallRunTime: 1
+  _wallDutchAngle: 5
   _whatIsWall:
     serializedVersion: 2
     m_Bits: 64

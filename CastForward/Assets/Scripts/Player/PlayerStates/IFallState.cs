@@ -25,7 +25,7 @@ namespace PlayerStates {
                 Vector3 inputVector = new(_pc.MovementInput.x * _pc.PlayerSpeed * _pc.StrafeModifier * _pc.SprintSpeed,
                     0, _pc.MovementInput.y * _pc.PlayerSpeed * _pc.SprintSpeed);
                 inputVector = _pc.CameraForward * inputVector;
-                _pc.rb.AddForce(inputVector, ForceMode.VelocityChange);
+                _pc.rb.AddForce(inputVector, ForceMode.Force);
             }
         }
     }
