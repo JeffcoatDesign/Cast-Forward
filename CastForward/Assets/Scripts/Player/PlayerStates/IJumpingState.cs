@@ -10,7 +10,7 @@ namespace PlayerStates {
         float _JumpBuffer = 0.2f;
         float _WallRunBuffer = 0.2f;
         private float _wallCheckDistance = 0.7f;
-        private float _minWallrunHeight = 2f;
+        private float _minWallrunHeight = 1f;
         private bool WallLeft;
         private bool WallRight;
         public void Enter(PlayerController playerController)
