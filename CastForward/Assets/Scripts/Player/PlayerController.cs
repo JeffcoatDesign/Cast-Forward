@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded = true;
     public bool jumpPressed = false;
 
-    public float PlayerSpeed { get { return _playerSpeed; } }
+    public float PlayerSpeed { get { return _playerSpeed * Time.deltaTime; } }
     public float StrafeModifier { get { return _strafeModifier; } }
     public float SprintSpeed { get {
             if (_sprintActive) return _sprintModifier;
@@ -62,9 +62,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        isGrounded = Physics.Raycast(transform.position, -Vector3.up, 1.1f);
+        isGrounded = Physics.Raycast(transform.position, -Vector3.up, 1.1f, WhatIsGround);
         transform.rotation = CameraForward;
         _currentState.HandleInput();
     }

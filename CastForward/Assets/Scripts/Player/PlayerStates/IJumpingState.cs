@@ -28,10 +28,10 @@ namespace PlayerStates {
         public void HandleInput ()
         {
             CheckForWall();
-            Vector3 inputVector = new(_pc.MovementInput.x * _pc.PlayerSpeed * _pc.StrafeModifier * _pc.SprintSpeed,
-                       0, _pc.MovementInput.y * _pc.PlayerSpeed * _pc.SprintSpeed);
+            Vector3 inputVector = new(_pc.MovementInput.x * _pc.PlayerSpeed * _pc.StrafeModifier,
+                       0, _pc.MovementInput.y * _pc.PlayerSpeed);
             inputVector = _pc.CameraForward * inputVector;
-            _pc.rb.AddForce(inputVector, ForceMode.Force);
+            _pc.rb.AddForce(inputVector * _pc.SprintSpeed, ForceMode.Force);
 
             if (_pc.isGrounded && Time.time - _stateStartTime > _JumpBuffer)
                 _pc.SetState(new IWalkingState());

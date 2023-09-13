@@ -49,8 +49,8 @@ namespace PlayerStates {
 
                 _pc.rb.AddForce(wallForward * _pc.PlayerSpeed * _pc.SprintSpeed, ForceMode.Force);
 
-                if (!(WallLeft && _pc.MovementInput.y > 0) && !(WallRight && _pc.MovementInput.y < 0))
-                    _pc.rb.AddForce(-wallNormal * 100, ForceMode.Force);
+                /*if (!(WallLeft && _pc.MovementInput.y > 0) && !(WallRight && _pc.MovementInput.y < 0))
+                    _pc.rb.AddForce(-wallNormal * 100, ForceMode.Force);*/
             }
             else
             {
