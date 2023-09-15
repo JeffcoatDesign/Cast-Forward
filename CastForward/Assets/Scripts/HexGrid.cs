@@ -10,7 +10,6 @@ public class HexGrid : MonoBehaviour
     public int width = 6;
     public int height = 6;
     public float noiseScale = 0.5f;
-    public int animationDelay = 1;
     public float minimumDistance = 3f;
     public float tileScale = 1f;
 
@@ -31,14 +30,15 @@ public class HexGrid : MonoBehaviour
         tileset.CalculateWeights();
     }
 
-    public async void GenerateMap()
+    public IEnumerator GenerateMap()
     {
         cells = new HexCell[width, height];
         for (int x = 0; x < width; x++)
         {
             for (int z = 0; z < height; z++)
             {
-                await CreateCell(x, z);
+                StartCoroutine(CreateCell(x, z));
+                yield return null;
             }
         }
         for (int x = 0; x < width; x++)
@@ -62,9 +62,10 @@ public class HexGrid : MonoBehaviour
                 }
             }
         }
+        yield return null;
     }
 
-    private async Task CreateCell (int x, int z)
+    private IEnumerator CreateCell (int x, int z)
     {
         Vector3 scale = Vector3.one * HexMetrics.hexScale;
         Vector3 position;
@@ -79,10 +80,10 @@ public class HexGrid : MonoBehaviour
         cell.transform.localPosition = position;
         cell.coordinates = HexCoordinates.FromOffsetCoordinates(x, z);
         cell.arrayCoords = new Vector2Int(x, z);
-        await Task.Delay(animationDelay);
+        yield return null;
     }
 
-    public async void GeneratePaths ()
+    public IEnumerator GeneratePaths ()
     {
         float[,] noiseMap = MapGeneration.GenerateNoisemap(width, height, noiseScale);
         for (int z = 0; z < height; z++) {
@@ -90,7 +91,7 @@ public class HexGrid : MonoBehaviour
                 HexCell cell = cells[x, z];
                 if (noiseMap[x, z] > .4f) {
                     cell.isDecentivized = true;
-                    await Task.Delay(animationDelay);
+                    yield return null;
                 }
             }
         }
@@ -101,10 +102,10 @@ public class HexGrid : MonoBehaviour
         {
             cells[pointPair.Point1.x, pointPair.Point1.y].isDecentivized = false;
             cells[pointPair.Point2.x, pointPair.Point2.y].isDecentivized = false;
-            await FindPathFromVectorPair(pointPair);
+            yield return FindPathFromVectorPair(pointPair);
         }
-        await CheckForPaths();
-        await FindFurthestPoints();
+        yield return CheckForPaths();
+        yield return FindFurthestPoints();
     }
 
     public List<Vector2> GetRandomPoints (int w, int h)
@@ -162,32 +163,32 @@ public class HexGrid : MonoBehaviour
         return new(x, z);
     }
 
-    public async Task FindPathFromVectorPair (Vector2Pair pair)
+    public IEnumerator FindPathFromVectorPair (Vector2Pair pair)
     {
         HexCell startCell = cells[pair.Point1.x, pair.Point1.y];
         HexCell endCell = cells[pair.Point2.x, pair.Point2.y];
         startCell.isPath = true;
         endCell.isPath = true;
-        await FindPath(startCell, endCell);
+        yield return FindPath(startCell, endCell);
     }
 
-    public async Task FindPath (HexCell fromCell, HexCell toCell)
+    public IEnumerator FindPath (HexCell fromCell, HexCell toCell)
     {
         if (!Nodes.Contains(fromCell)) Nodes.Add(fromCell);
         if (!Nodes.Contains(toCell)) Nodes.Add(toCell);
-        await Search(fromCell, toCell);
+        yield return Search(fromCell, toCell);
     }
 
-    public async Task CheckForPaths ()
+    public IEnumerator CheckForPaths ()
     {
         foreach (HexCell cell in cells)
         {
-            await Task.Delay(animationDelay);
+            yield return null;
             cell.CheckNeighbors();
         }
     }
 
-    private async Task Search (HexCell fromCell, HexCell toCell)
+    private IEnumerator Search (HexCell fromCell, HexCell toCell)
     {
         for (int x = 0; x < width; x++) {
             for (int z = 0; z < height; z++) {
@@ -206,7 +207,7 @@ public class HexGrid : MonoBehaviour
                 current = current.PathFrom;
                 while (current != fromCell)
                 {
-                    await Task.Delay(animationDelay);
+                    yield return null;
                     current.isPath = true;
                     current.isDecentivized = false;
                     current = current.PathFrom;
@@ -218,7 +219,7 @@ public class HexGrid : MonoBehaviour
                 HexCell neighbor = current.GetNeighbor(d);
                 if (neighbor == null) continue;
                 if (neighbor.isBlocked) continue;
-                await Task.Delay(animationDelay);
+                yield return null;
                 int distance = current.distance;
                 if (current.isDecentivized)
                     distance += 10;
@@ -241,11 +242,11 @@ public class HexGrid : MonoBehaviour
                 frontier.Sort((x, y) => x.SearchPriority.CompareTo(y.SearchPriority));
             }
         }
-        await Task.Delay(animationDelay);
+        yield return null;
         ResetDebug();
     }
 
-    private async Task FindFurthestPoints ()
+    private IEnumerator FindFurthestPoints ()
     {
         HexCell start = null;
         HexCell end = null;
@@ -262,7 +263,7 @@ public class HexGrid : MonoBehaviour
                     end = otherCell;
                     greatestLength = currentLength;
                 }
-                await Task.Yield();
+                yield return null;
             }
         }
         if (start != null)

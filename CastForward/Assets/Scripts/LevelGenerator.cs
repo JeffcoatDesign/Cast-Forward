@@ -7,7 +7,8 @@ public class LevelGenerator : MonoBehaviour
 {
     [SerializeField] private HexGrid hexGrid;
     [SerializeField] private GameObject playerPrefab;
-    // Start is called before the first frame update
+    private bool isGenerating = true;
+// TODO: MAKE BETTER
     void Start()
     {
         StartCoroutine(GenerateDungeon());
@@ -15,13 +16,12 @@ public class LevelGenerator : MonoBehaviour
 
     IEnumerator GenerateDungeon()
     {
-        hexGrid.GenerateMap();
-        yield return new WaitUntil(() => hexGrid.Cells[hexGrid.width - 1, hexGrid.height - 1] != null);
-        hexGrid.GeneratePaths();
-        yield return new WaitUntil(() => hexGrid.StartCell != null);
+        yield return hexGrid.GenerateMap(); 
+        yield return hexGrid.GeneratePaths();
         GameObject player = Instantiate(playerPrefab);
         player.transform.position = hexGrid.StartCell.SpawnPosition;
         player.transform.localRotation = Quaternion.Euler(GetCorridorDirection(hexGrid.StartCell));
+        isGenerating = false;
     }
     private Vector3 GetCorridorDirection(HexCell cell)
     {
@@ -35,5 +35,10 @@ public class LevelGenerator : MonoBehaviour
             }
         }
         return new(0, 30 + 60 * (int)direction, 0);
+    }
+    private void OnGUI()
+    {
+        if (isGenerating)
+            GUI.TextArea(new Rect(1, 1, 200, 30), "Level Generating");
     }
 }
