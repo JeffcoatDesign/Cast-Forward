@@ -11,24 +11,30 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _playerSpeed = 100f;
     [SerializeField] private float _strafeModifier = 0.6f;
     [SerializeField] private float _sprintModifier = 2f;
+    [SerializeField] private float _crouchModifier = 0.6f;
     [SerializeField] private float _jumpPower = 200f;
     [SerializeField] private float _maxWallRunTime = 4f;
     [SerializeField] private float _wallDutchAngle = 10f;
+    [SerializeField] private float _maxSlopeAngle = 10f;
     [SerializeField] private LayerMask _whatIsWall;
     [SerializeField] private LayerMask _whatIsGround;
     private bool _sprintActive = false;
+    private bool _crouchActive = false;
 
     private Vector2 _movementInput;
 
     public bool isGrounded = true;
     public bool jumpPressed = false;
+    public RaycastHit slopeHit;
 
     public float PlayerSpeed { get { return _playerSpeed * Time.deltaTime; } }
     public float StrafeModifier { get { return _strafeModifier; } }
+    public float CrouchModifier { get { return _crouchModifier; } }
     public float SprintSpeed { get {
             if (_sprintActive) return _sprintModifier;
             else return 1f;
         } }
+    public bool isCrouching { get { return _crouchActive; } }
     public float JumpPower { get { return _jumpPower; } }
     public float MaxWallRunTime { get { return _maxWallRunTime; } }
     public float WallDutchAngle { get { return _wallDutchAngle; } }
@@ -50,7 +56,18 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext ctx) => _movementInput = ctx.ReadValue<Vector2>();
     public void OnJump(InputAction.CallbackContext ctx) => jumpPressed = ctx.ReadValueAsButton();
-    public void OnSprint(InputAction.CallbackContext ctx) => _sprintActive = ctx.ReadValueAsButton();
+    public void OnSprint(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed) { 
+            ToggleSprint(!_sprintActive);
+        }
+    }
+    public void OnCrouch(InputAction.CallbackContext ctx) => _crouchActive = ctx.ReadValueAsButton();
+    public void ToggleSprint(bool value)
+    {
+        _sprintActive = value;
+// TODO: Change FOV
+    }
 
     public void SetState(IPlayerState playerState)
     {
@@ -60,6 +77,16 @@ public class PlayerController : MonoBehaviour
             _currentState = playerState;
             _currentState.Enter(this);
         }
+    }
+
+    public bool OnSlope ()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, 1.1f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            return angle < _maxSlopeAngle && angle != 0;
+        }
+        return false;
     }
 
     private void Update()

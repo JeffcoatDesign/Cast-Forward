@@ -10,6 +10,7 @@ namespace PlayerStates
         public void Enter (PlayerController playerController)
         {
             _pc = playerController;
+            _pc.ToggleSprint(false);
         }
 
         public void Exit ()
@@ -23,6 +24,8 @@ namespace PlayerStates
                 return;
             if (_pc.jumpPressed)
                 _pc.SetState(new IJumpingState());
+            else if (_pc.isCrouching)
+                _pc.SetState(new ICrouchState());
             else if (_pc.MovementInput.magnitude != 0)
                 _pc.SetState(new IWalkingState());
         }

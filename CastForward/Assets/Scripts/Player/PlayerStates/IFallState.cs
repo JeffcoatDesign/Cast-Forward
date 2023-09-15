@@ -9,6 +9,7 @@ namespace PlayerStates {
         public void Enter (PlayerController playerController)
         {
             _pc = playerController;
+            _pc.ToggleSprint(false);
         }
 
         public void Exit ()

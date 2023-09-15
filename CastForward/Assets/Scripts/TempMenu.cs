@@ -7,4 +7,8 @@ public class TempMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Playground");
     }
+    public void LoadLevelOne()
+    {
+        SceneManager.LoadScene("Level1");
+    }
 }

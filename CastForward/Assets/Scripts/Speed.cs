@@ -6,8 +6,7 @@ public class Speed : MonoBehaviour
 {
     public TextMeshProUGUI text;
     public Rigidbody rb;
-
-    // Update is called once per frame
+// TODO: DELETE THIS FROM PROJECT EVENTUALLY
     void Update()
     {
         if (text != null && rb != null)
