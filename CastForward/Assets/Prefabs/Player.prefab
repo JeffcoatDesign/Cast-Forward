@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 3022973026543301705}
   - component: {fileID: 801057874955961252}
   - component: {fileID: 1801120503515114720}
+  - component: {fileID: 8869595033814103746}
   m_Layer: 2
   m_Name: Player Controller
   m_TagString: Player
@@ -636,3 +637,17 @@ MonoBehaviour:
   rightSpell: {fileID: 11400000, guid: 604494daf4a1f7644988c22406df0afb, type: 2}
   playerLeftTransform: {fileID: 8791869015563189880}
   playerRightTransform: {fileID: 7695276777056805431}
+--- !u!114 &8869595033814103746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7801123984209130846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93de97a3e1541ec47b9ec3dbefc8faa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHitpoints: 100
+  _currentHitpoints: 100

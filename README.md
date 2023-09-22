@@ -1,7 +1,12 @@
 # Cast-Forward
 https://jeffcoatdesign.github.io/Cast-Forward/
 # Changelog:
-V0.0.1
+v0.0.2
++ Dynamic Navmesh
++ Player HP
++ Exit Portal
++ Summoning Spells
+v0.0.1
 + Created the Player Controller
 + Implemented Hexgrid
 + Created a Timer
