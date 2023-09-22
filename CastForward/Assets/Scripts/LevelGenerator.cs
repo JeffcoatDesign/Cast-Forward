@@ -5,10 +5,13 @@ using UnityEngine;
 using MapUtility;
 public class LevelGenerator : MonoBehaviour
 {
+    public delegate void LevelGenerated();
+    public static event LevelGenerated OnLevelGenerated;
     [SerializeField] private HexGrid hexGrid;
     [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private GameObject portalPrefab;
     private bool isGenerating = true;
-// TODO: MAKE BETTER
+
     void Start()
     {
         StartCoroutine(GenerateDungeon());
@@ -20,10 +23,14 @@ public class LevelGenerator : MonoBehaviour
         yield return hexGrid.GeneratePaths();
         GameObject player = Instantiate(playerPrefab);
         player.transform.position = hexGrid.StartCell.SpawnPosition;
-        player.transform.localRotation = Quaternion.Euler(GetCorridorDirection(hexGrid.StartCell));
+        player.transform.localRotation = GetCorridorDirection(hexGrid.StartCell);
+        GameObject portal = Instantiate(portalPrefab);
+        portal.transform.position = hexGrid.EndCell.SpawnPosition;
+        portal.transform.localRotation = GetCorridorDirection(hexGrid.EndCell);
         isGenerating = false;
+        if (OnLevelGenerated != null) OnLevelGenerated();
     }
-    private Vector3 GetCorridorDirection(HexCell cell)
+    private Quaternion GetCorridorDirection(HexCell cell)
     {
         HexDirection direction = HexDirection.NE;
         for (HexDirection i = HexDirection.NE; i <= HexDirection.NW; i++)
@@ -34,7 +41,7 @@ public class LevelGenerator : MonoBehaviour
                 break;
             }
         }
-        return new(0, 30 + 60 * (int)direction, 0);
+        return Quaternion.Euler(0, 30 + 60 * (int)direction, 0);
     }
     private void OnGUI()
     {

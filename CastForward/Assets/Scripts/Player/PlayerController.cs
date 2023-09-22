@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     public void ToggleSprint(bool value)
     {
         _sprintActive = value;
-// TODO: Change FOV
+        PlayerVCam.m_Lens.FieldOfView = _sprintActive ? 100 : 80;
     }
 
     public void SetState(IPlayerState playerState)

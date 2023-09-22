@@ -11,7 +11,7 @@ namespace PlayerStates {
         private float _wallRunTimer = 0f;
         private float _wallCheckDistance = 0.7f;
         private float _minWallrunHeight = 1f;
-        private float _dismountForce = 5f;
+        private float _dismountForce = 10f;
         private RaycastHit leftWallHit;
         private RaycastHit RightWallHit;
         private bool WallLeft;
