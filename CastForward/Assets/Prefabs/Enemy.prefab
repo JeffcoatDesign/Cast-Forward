@@ -45,8 +45,8 @@ GameObject:
   - component: {fileID: 2808546320283696726}
   - component: {fileID: 4026768804789164838}
   - component: {fileID: 4839774853705092203}
+  - component: {fileID: 5492943837189234783}
   - component: {fileID: 7749380103477771865}
-  - component: {fileID: 8670220939737812471}
   - component: {fileID: 3756735504030194850}
   m_Layer: 8
   m_Name: Enemy
@@ -191,8 +191,8 @@ MonoBehaviour:
   Attack:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8670220939737812471}
-        m_TargetAssemblyTypeName: EnemyMagic, Assembly-CSharp
+      - m_Target: {fileID: 5492943837189234783}
+        m_TargetAssemblyTypeName: EnemySpells, Assembly-CSharp
         m_MethodName: OnSpellAttack
         m_Mode: 1
         m_Arguments:
@@ -203,20 +203,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7749380103477771865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6583740149842715992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdc891bdd80216549b23dc01c48bfb53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHitpoints: 10
---- !u!114 &8670220939737812471
+--- !u!114 &5492943837189234783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,7 +220,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 604494daf4a1f7644988c22406df0afb, type: 2}
   spellTransform: {fileID: 8442652059083486490}
   _maxMana: 100
-  _manaRegenSpeed: 0.5
+  _manaRegenSpeed: 0.1
+--- !u!114 &7749380103477771865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6583740149842715992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc891bdd80216549b23dc01c48bfb53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHitpoints: 10
 --- !u!54 &3756735504030194850
 Rigidbody:
   m_ObjectHideFlags: 0
