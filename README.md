@@ -6,6 +6,7 @@ v0.0.2
 + Player HP
 + Exit Portal
 + Summoning Spells
++ AI Enemies  
 v0.0.1
 + Created the Player Controller
 + Implemented Hexgrid

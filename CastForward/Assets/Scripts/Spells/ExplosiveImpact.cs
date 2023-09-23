@@ -12,11 +12,11 @@ namespace SpellSystem
             bool canHitEnemies = (!spawnedByPlayer && (collisionType == CollisionType.Ally || collisionType == CollisionType.Neutral)) || (spawnedByPlayer && (collisionType == CollisionType.Enemy || collisionType == CollisionType.Neutral));
             if (canHitPlayer && other.CompareTag("Player"))
             {
-// TODO Deal damage to player
+                other.GetComponent<Entity>().GetHit(damageMultiplier);
             }
             else if (canHitEnemies && other.CompareTag("Enemy"))
             {
-// TODO: Deal damage to enemy
+                other.GetComponent<Entity>().GetHit(damageMultiplier);
             }
         }
     }

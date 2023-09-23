@@ -18,4 +18,4 @@ MonoBehaviour:
   _projectileSpeed: 0.001
   _damageMultiplier: 3
   _collisionType: 0
-  manaCost: 2
+  manaCost: 66

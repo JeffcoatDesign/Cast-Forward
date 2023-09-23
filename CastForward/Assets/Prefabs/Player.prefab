@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 801057874955961252}
   - component: {fileID: 1801120503515114720}
   - component: {fileID: 8869595033814103746}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Player Controller
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -650,4 +650,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHitpoints: 100
-  _currentHitpoints: 100
