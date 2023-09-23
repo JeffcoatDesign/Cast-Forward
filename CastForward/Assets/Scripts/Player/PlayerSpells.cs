@@ -13,6 +13,10 @@ public class PlayerSpells : MonoBehaviour
     private float _currentMana;
     [SerializeField] private Transform playerLeftTransform;
     [SerializeField] private Transform playerRightTransform;
+    private void Start()
+    {
+        _currentMana = _maxMana;
+    }
     public void OnLeftSpell (InputAction.CallbackContext ctx)
     {
         bool canAffordSpell = _currentMana >= leftSpell.manaCost;
