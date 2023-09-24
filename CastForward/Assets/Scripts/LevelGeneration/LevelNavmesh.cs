@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class LevelNavmesh : MonoBehaviour
 {
+    public delegate void NavMeshBuilt();
+    public static event NavMeshBuilt OnNavMeshBuilt;
     private void OnEnable()
     {
         LevelGenerator.OnGetNavmesh += BuildNavMesh;
@@ -17,5 +19,6 @@ public class LevelNavmesh : MonoBehaviour
     {
         NavMeshSurface navMeshSurface = GetComponent<NavMeshSurface>();
         navMeshSurface.BuildNavMesh();
+        OnNavMeshBuilt?.Invoke();
     }
 }

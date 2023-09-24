@@ -16,6 +16,7 @@ public class PlayerEntity : Entity
     {
         base.GetHit(amount);
         OnPlayerHPChange?.Invoke(CurrentHP);
+        if (CurrentHP <= 0) Die();
     }
     public override void Die()
     {

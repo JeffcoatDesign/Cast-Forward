@@ -16,6 +16,6 @@ MonoBehaviour:
   _impactPrefab: {fileID: 2992758300039189206, guid: 3921a2a783a96df45a529f5582b20cea, type: 3}
   _inventorySprite: {fileID: 0}
   _projectileSpeed: 0.0005
-  _damageMultiplier: 1
+  _damageMultiplier: 10
   _collisionType: 0
   manaCost: 33

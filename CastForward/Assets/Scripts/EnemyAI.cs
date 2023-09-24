@@ -8,7 +8,7 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     private Transform _player;
-    private NavMeshAgent _navMeshAgent;
+    public NavMeshAgent navMeshAgent;
     [SerializeField] private LayerMask _whatIsGround;
     [Header("Patrolling")]
     Vector3 walkPoint;
@@ -25,7 +25,6 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         _player = FindAnyObjectByType<PlayerEntity>().transform;
-        _navMeshAgent = GetComponent<NavMeshAgent>();
         if (Attack == null) Attack = new();
     }
 
@@ -55,7 +54,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (!_walkPointSet) SearchWalkPoint();
 
-        if (_walkPointSet) _navMeshAgent.SetDestination(walkPoint);
+        if (_walkPointSet) navMeshAgent.SetDestination(walkPoint);
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
@@ -70,11 +69,11 @@ public class EnemyAI : MonoBehaviour
     }
     private void ChasePlayer()
     {
-        _navMeshAgent.SetDestination(_player.position);
+        navMeshAgent.SetDestination(_player.position);
     }
     public void AttackPlayer()
     {
-        _navMeshAgent.SetDestination(transform.position);
+        navMeshAgent.SetDestination(transform.position);
         transform.LookAt(_player);
 
         if (!isAttacking)
