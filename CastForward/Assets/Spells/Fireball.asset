@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectilePrefab: {fileID: 827163889820457797, guid: a9533a0a71608fb45bb206532a87778f, type: 3}
   _impactPrefab: {fileID: 2992758300039189206, guid: f36f75c50c9dce145990740e73302910, type: 3}
-  _inventorySprite: {fileID: 0}
+  _inventorySprite: {fileID: 21300000, guid: 006d613c9146ae648a5c976b61793296, type: 3}
   _projectileSpeed: 0.001
   _damageMultiplier: 15
   _collisionType: 0

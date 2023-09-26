@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public delegate void SetFocus(Interactable focus);
+    public static event SetFocus OnSetFocus;
+
     public Rigidbody rb;
 
     [SerializeField] private CinemachineVirtualCamera _vCam;
@@ -18,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _maxSlopeAngle = 10f;
     [SerializeField] private LayerMask _whatIsWall;
     [SerializeField] private LayerMask _whatIsGround;
+    [SerializeField] private Transform _playerCursor;
     private bool _sprintActive = false;
     private bool _crouchActive = false;
 
@@ -94,5 +98,19 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics.Raycast(transform.position, -Vector3.up, 1.1f, WhatIsGround);
         transform.rotation = CameraForward;
         _currentState.HandleInput();
+
+        RaycastHit hit;
+        if (Physics.Raycast(_playerCursor.position,_playerCursor.forward, out hit))
+        {
+            if (hit.collider.CompareTag("Interactable"))
+            {
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                OnSetFocus?.Invoke(interactable);
+            }
+            else
+                OnSetFocus?.Invoke(null);
+        }
+        else
+            OnSetFocus?.Invoke(null);
     }
 }

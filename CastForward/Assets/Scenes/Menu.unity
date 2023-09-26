@@ -505,8 +505,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Playground
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 97612971bed1a5f4e989c355e38b7ee3, type: 2}
+  m_sharedMaterial: {fileID: 3509884660341160812, guid: 97612971bed1a5f4e989c355e38b7ee3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1137,8 +1137,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 97612971bed1a5f4e989c355e38b7ee3, type: 2}
+  m_sharedMaterial: {fileID: 3509884660341160812, guid: 97612971bed1a5f4e989c355e38b7ee3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
