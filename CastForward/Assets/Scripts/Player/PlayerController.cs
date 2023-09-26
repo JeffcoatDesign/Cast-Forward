@@ -19,8 +19,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _maxWallRunTime = 4f;
     [SerializeField] private float _wallDutchAngle = 10f;
     [SerializeField] private float _maxSlopeAngle = 10f;
+    [SerializeField] private float _maxInteractDistance = 2f;
     [SerializeField] private LayerMask _whatIsWall;
     [SerializeField] private LayerMask _whatIsGround;
+    [SerializeField] private LayerMask _whatIsInteractable;
     [SerializeField] private Transform _playerCursor;
     private bool _sprintActive = false;
     private bool _crouchActive = false;
@@ -99,8 +101,9 @@ public class PlayerController : MonoBehaviour
         transform.rotation = CameraForward;
         _currentState.HandleInput();
 
+        Ray ray = new(_playerCursor.position, _playerCursor.forward);
         RaycastHit hit;
-        if (Physics.Raycast(_playerCursor.position,_playerCursor.forward, out hit))
+        if (Physics.Raycast(ray, out hit, _maxInteractDistance, _whatIsInteractable))
         {
             if (hit.collider.CompareTag("Interactable"))
             {

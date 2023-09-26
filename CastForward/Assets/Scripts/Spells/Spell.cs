@@ -5,7 +5,7 @@ using UnityEngine;
 namespace SpellSystem
 {
     [CreateAssetMenu(fileName = "SpellObject", menuName = "Spell")]
-    public class Spell : ScriptableObject
+    public class Spell : Item
     {
         [SerializeField] private GameObject _projectilePrefab;
         [SerializeField] private GameObject _impactPrefab;
@@ -14,6 +14,7 @@ namespace SpellSystem
         [SerializeField] private float _damageMultiplier;
         [SerializeField] private CollisionType _collisionType;
 
+        public Sprite spellSprite { get { return _inventorySprite; } }
         public float manaCost;
 
         public void SummonSpell(Vector3 spawnPosition, Quaternion direction, bool spawnedByPlayer)
@@ -26,6 +27,12 @@ namespace SpellSystem
             projectile.spawnedByPlayer = spawnedByPlayer;
             if (_impactPrefab != null)
                 projectile.impactPrefab = _impactPrefab;
+        }
+        public override void Interact()
+        {
+            PlayerSpells playerSpells = FindFirstObjectByType<PlayerSpells>();
+            //TODO go to inventory
+            playerSpells.SetSpell(this, 0);
         }
     }
 }

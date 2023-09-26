@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3483726d431f4204ea45d15aa81c0740, type: 3}
+  m_Name: PoisonBall
+  m_EditorClassIdentifier: 
+  _projectilePrefab: {fileID: 827163889820457797, guid: e4050fca6c45cad49aa769826cb2bd21, type: 3}
+  _impactPrefab: {fileID: 2992758300039189206, guid: 1bb13cb9d77e12240a80c4aa2a2e2442, type: 3}
+  _inventorySprite: {fileID: 21300000, guid: 566bd6532d998a7428d6b6092ad120c1, type: 3}
+  _projectileSpeed: 0.0002
+  _damageMultiplier: 10
+  _collisionType: 0
+  manaCost: 10

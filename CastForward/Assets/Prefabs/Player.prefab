@@ -455,12 +455,16 @@ MonoBehaviour:
   _maxWallRunTime: 1
   _wallDutchAngle: 5
   _maxSlopeAngle: 10
+  _maxInteractDistance: 2
   _whatIsWall:
     serializedVersion: 2
     m_Bits: 64
   _whatIsGround:
     serializedVersion: 2
     m_Bits: 128
+  _whatIsInteractable:
+    serializedVersion: 2
+    m_Bits: 1011
   _playerCursor: {fileID: 603526556478981382}
   isGrounded: 1
   jumpPressed: 0
@@ -649,6 +653,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f8ef18cc-a1c4-461c-bd80-09bf2a17f2c8
     m_ActionName: 'Game/Crouch[/Keyboard/ctrl]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 07802f92-66f4-44a5-8b04-754377c4ea75
+    m_ActionName: 'Game/Interact[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Game
