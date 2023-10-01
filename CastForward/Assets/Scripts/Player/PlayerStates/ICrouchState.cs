@@ -33,9 +33,9 @@ namespace PlayerStates
                 inputVector = _pc.CameraForward * inputVector;
                 _pc.rb.AddForce(inputVector, ForceMode.Force);
             }
-            else if (!_pc.isCrouching && _pc.MovementInput.magnitude == 0)
+            else if (!_pc.IsCrouching && _pc.MovementInput.magnitude == 0)
                 _pc.SetState(new IStandingState());
-            else if (!_pc.isCrouching)
+            else if (!_pc.IsCrouching)
                 _pc.SetState(new IWalkingState());
             else if (_pc.jumpPressed)
                 _pc.SetState(new IJumpingState());

@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
             if (_sprintActive) return _sprintModifier;
             else return 1f;
         } }
-    public bool isCrouching { get { return _crouchActive; } }
+    public bool IsCrouching { get { return _crouchActive; } }
     public float JumpPower { get { return _jumpPower; } }
     public float MaxWallRunTime { get { return _maxWallRunTime; } }
     public float WallDutchAngle { get { return _wallDutchAngle; } }
@@ -68,7 +68,11 @@ public class PlayerController : MonoBehaviour
             ToggleSprint(!_sprintActive);
         }
     }
-    public void OnCrouch(InputAction.CallbackContext ctx) => _crouchActive = ctx.ReadValueAsButton();
+    public void OnCrouch(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+            _crouchActive = !_crouchActive;
+    }
     public void ToggleSprint(bool value)
     {
         _sprintActive = value;
@@ -101,9 +105,8 @@ public class PlayerController : MonoBehaviour
         transform.rotation = CameraForward;
         _currentState.HandleInput();
 
-        Ray ray = new(_playerCursor.position, _playerCursor.forward);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, _maxInteractDistance, _whatIsInteractable))
+        Ray ray = new(_playerCursor.position, Camera.main.transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, _maxInteractDistance, _whatIsInteractable))
         {
             if (hit.collider.CompareTag("Interactable"))
             {

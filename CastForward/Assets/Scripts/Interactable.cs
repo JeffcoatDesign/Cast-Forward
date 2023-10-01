@@ -8,7 +8,8 @@ public class Interactable : MonoBehaviour
     [SerializeField] private string _verb;
     [SerializeField] private float _interactionCooldown = 2f;
     [SerializeField] private InputActionReference _actionReference;
-    public string verb { get { return _verb; } }
+    public string Verb { get { return _verb; } }
+    public virtual string InteractableName { get { return name; } }
 
     private bool _isFocused = false;
     private bool _hasInteracted = false;
@@ -46,7 +47,6 @@ public class Interactable : MonoBehaviour
     }
     public virtual void Interact()
     {
-        
         Debug.Log("Interacted with: " + gameObject.name);
     }
     private IEnumerator ResetInteraction()

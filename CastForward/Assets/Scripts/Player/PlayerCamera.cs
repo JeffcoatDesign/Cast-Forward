@@ -16,6 +16,7 @@ public class PlayerCamera : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.instance.IsPaused) return;
         transform.position = _playerTransform.position;
         float rotY = _lookInput.x * _turnSpeed;
         _rotX += _lookInput.y * _turnSpeed;

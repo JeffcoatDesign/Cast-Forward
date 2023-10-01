@@ -3,7 +3,13 @@ guid: 3483726d431f4204ea45d15aa81c0740
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - itemPrefab: {fileID: 5734729433855749561, guid: 4a0fb5e95d91ea9469d18133d32417eb, type: 3}
+  - mesh: {fileID: 381947130776709163, guid: 540dab26906ae154dbaf81f7f7addacb, type: 3}
+  - material: {instanceID: 0}
+  - _projectilePrefab: {instanceID: 0}
+  - _impactPrefab: {instanceID: 0}
+  - _inventorySprite: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

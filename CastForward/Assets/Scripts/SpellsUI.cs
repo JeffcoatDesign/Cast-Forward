@@ -21,7 +21,7 @@ public class SpellsUI : MonoBehaviour
         _leftSpellImage.enabled = (leftSpell != null);
         _rightSpellImage.enabled = (rightSpell != null);
 
-        _leftSpellImage.sprite = leftSpell.spellSprite;
-        _rightSpellImage.sprite = rightSpell.spellSprite;
+        _leftSpellImage.sprite = leftSpell.inventorySprite;
+        _rightSpellImage.sprite = rightSpell.inventorySprite;
     }
 }

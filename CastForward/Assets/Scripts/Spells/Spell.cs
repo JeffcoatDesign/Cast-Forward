@@ -7,14 +7,14 @@ namespace SpellSystem
     [CreateAssetMenu(fileName = "SpellObject", menuName = "Spell")]
     public class Spell : Item
     {
+        public delegate void SpellPickup(Spell spell);
+        public static event SpellPickup OnSpellPickup;
         [SerializeField] private GameObject _projectilePrefab;
         [SerializeField] private GameObject _impactPrefab;
-        [SerializeField] private Sprite _inventorySprite;
         [SerializeField] private float _projectileSpeed;
         [SerializeField] private float _damageMultiplier;
         [SerializeField] private CollisionType _collisionType;
 
-        public Sprite spellSprite { get { return _inventorySprite; } }
         public float manaCost;
 
         public void SummonSpell(Vector3 spawnPosition, Quaternion direction, bool spawnedByPlayer)
@@ -30,9 +30,7 @@ namespace SpellSystem
         }
         public override void Interact()
         {
-            PlayerSpells playerSpells = FindFirstObjectByType<PlayerSpells>();
-            //TODO go to inventory
-            playerSpells.SetSpell(this, 0);
+            OnSpellPickup?.Invoke(this);
         }
     }
 }

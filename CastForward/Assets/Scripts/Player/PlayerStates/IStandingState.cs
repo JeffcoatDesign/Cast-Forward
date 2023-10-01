@@ -24,7 +24,7 @@ namespace PlayerStates
                 return;
             if (_pc.jumpPressed)
                 _pc.SetState(new IJumpingState());
-            else if (_pc.isCrouching)
+            else if (_pc.IsCrouching)
                 _pc.SetState(new ICrouchState());
             else if (_pc.MovementInput.magnitude != 0)
                 _pc.SetState(new IWalkingState());
