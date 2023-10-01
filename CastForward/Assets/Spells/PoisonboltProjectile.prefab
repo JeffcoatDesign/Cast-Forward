@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 8340535344138142206}
   - component: {fileID: 222022264042412847}
   m_Layer: 0
-  m_Name: Frost
+  m_Name: Poison
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -377,7 +377,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.015686281, g: 0.7948899, b: 0.8862745, a: 1}
+      maxColor: {r: 0, g: 1, b: 0.08218217, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -765,7 +765,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.01
+      scalar: 0.005
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -905,7 +905,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.31
       mode: 0
       spread: 0
       speed:
@@ -4931,7 +4931,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2a7df31cc5b291846965067b98ac6672, type: 2}
+  - {fileID: 2100000, guid: 6971a3a97dfdef448ace895038241149, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

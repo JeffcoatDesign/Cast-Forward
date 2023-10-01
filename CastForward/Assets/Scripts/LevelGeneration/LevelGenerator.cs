@@ -6,12 +6,14 @@ using MapUtility;
 public class LevelGenerator : MonoBehaviour
 {
     public delegate void GetNavMesh();
-    public delegate void LevelGenerated();
+    public delegate void LevelGenerated(LevelGenerator levelGenerator);
     public static event GetNavMesh OnGetNavmesh;
     public static event LevelGenerated OnLevelGenerated;
     [SerializeField] private HexGrid hexGrid;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject portalPrefab;
+    [SerializeField] Item[] _loot;
+    public Item[] Loot { get { return _loot; } }
 
     void Start()
     {
@@ -29,7 +31,7 @@ public class LevelGenerator : MonoBehaviour
         portal.transform.position = hexGrid.EndCell.SpawnPosition;
         portal.transform.localRotation = GetCorridorDirection(hexGrid.EndCell);
         if (OnGetNavmesh != null) OnGetNavmesh();
-        if (OnLevelGenerated != null) OnLevelGenerated();
+        if (OnLevelGenerated != null) OnLevelGenerated(this);
     }
     private Quaternion GetCorridorDirection(HexCell cell)
     {

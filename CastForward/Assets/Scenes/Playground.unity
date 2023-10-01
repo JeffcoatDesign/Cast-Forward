@@ -1285,10 +1285,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4634822176157115818, guid: 3ac03aeb643b93e4fb342b7b04e6c758, type: 3}
-      propertyPath: _spawnRadius
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

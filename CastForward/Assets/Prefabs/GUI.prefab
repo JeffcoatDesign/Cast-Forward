@@ -383,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b068f795dd3469c4bb88bd070581293b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnRadius: 3
+  _spawnRadius: 1
   _pickupMenu: {fileID: 8173030756326875197}
   _leftSpellAction: {fileID: -7716467325908271637, guid: 3008ef13e3224f94794d553ed81265e7, type: 3}
   _rightSpellAction: {fileID: 717136412852350348, guid: 3008ef13e3224f94794d553ed81265e7, type: 3}

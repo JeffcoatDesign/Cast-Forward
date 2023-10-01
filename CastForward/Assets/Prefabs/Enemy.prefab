@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdc891bdd80216549b23dc01c48bfb53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHitpoints: 10
+  _maxHitpoints: 50
 --- !u!54 &3756735504030194850
 Rigidbody:
   m_ObjectHideFlags: 0
