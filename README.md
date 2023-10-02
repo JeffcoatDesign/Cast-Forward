@@ -7,7 +7,7 @@ v0.0.3
 + New Dungeon Tiles
 + Pause Game
 + Cursor
-+ Equip Menu
++ Equip Menu  
 v0.0.2  
 + Dynamic Navmesh
 + Player HP
