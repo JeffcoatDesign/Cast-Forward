@@ -7,6 +7,7 @@ public class HexCell : MonoBehaviour
 {
     public Vector2Int arrayCoords;
     public HexCoordinates coordinates;
+    public HexRoomType roomType = HexRoomType.Normal;
     public HexGrid hexGrid;
     [SerializeField] private HexCell[] neighbors;
     [SerializeField] private GameObject[] sides;
@@ -40,7 +41,7 @@ public class HexCell : MonoBehaviour
         if (!isPath) return;
         HexDirection direction = HexDirection.NE;
         bool[] pathMap = RotateToFirstPath(ref direction);
-        HexRoom room = Instantiate(hexGrid.Tileset.GetRoom(pathMap), transform);
+        HexRoom room = Instantiate(hexGrid.Tileset.GetRoom(pathMap, roomType), transform);
         room.transform.localRotation = Quaternion.Euler(0, 60 * (int)direction, 0);
     }
 

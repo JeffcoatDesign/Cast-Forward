@@ -104,8 +104,12 @@ public class HexGrid : MonoBehaviour
             cells[pointPair.Point2.x, pointPair.Point2.y].isDecentivized = false;
             yield return FindPathFromVectorPair(pointPair);
         }
-        yield return CheckForPaths();
+        foreach (HexCell node in Nodes)
+        {
+            node.roomType = HexRoomType.Lore;
+        }
         yield return FindFurthestPoints();
+        yield return CheckForPaths();
     }
 
     public List<Vector2> GetRandomPoints (int w, int h)
@@ -267,9 +271,15 @@ public class HexGrid : MonoBehaviour
             }
         }
         if (start != null)
+        {
             _startCell = start;
+            _startCell.roomType = HexRoomType.Spawn;
+        }
         if (end != null)
+        {
             endCell = end;
+            endCell.roomType = HexRoomType.Portal;
+        }
     }
 
     private int FindLength (HexCell fromCell, HexCell toCell)

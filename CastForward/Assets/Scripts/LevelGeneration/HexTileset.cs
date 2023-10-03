@@ -32,13 +32,13 @@ public class HexTileset : ScriptableObject
         return null;
     }
 
-    public HexRoom GetRoom(bool[] map)
+    public HexRoom GetRoom(bool[] map, HexRoomType type)
     {
         List<HexRoom> rooms = new List<HexRoom>();
         int weightSum = 0;
         for (int i = 0; i < hexRooms.Length; i++) {
             bool[] passages = hexRooms[i].Passages;
-            if (AreBoolArrsEqual(map, passages)) {
+            if (AreBoolArrsEqual(map, passages) && hexRooms[i].hexRoomType == type) {
                 rooms.Add(hexRooms[i]);
                 weightSum += hexRooms[i].weight;
             }
@@ -50,7 +50,7 @@ public class HexTileset : ScriptableObject
             if (randomWeight <= weightCount)
                 return rooms[i];
         }
-        return null;
+        return GetRoom(map, HexRoomType.Normal);
     }
 
     private bool AreBoolArrsEqual (bool[] bool1, bool[] bool2)

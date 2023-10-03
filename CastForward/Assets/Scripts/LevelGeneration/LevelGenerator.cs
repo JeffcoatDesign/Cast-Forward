@@ -25,11 +25,10 @@ public class LevelGenerator : MonoBehaviour
         yield return hexGrid.GenerateMap(); 
         yield return hexGrid.GeneratePaths();
         GameObject player = Instantiate(playerPrefab);
-        player.transform.position = hexGrid.StartCell.SpawnPosition;
+        player.transform.position = PlayerSpawnpoint.spawnpoint.transform.position;
+        //TODO Correct forward dir in editor
+        //player.transform.localRotation = PlayerSpawnpoint.spawnpoint.transform.localRotation;
         player.transform.localRotation = GetCorridorDirection(hexGrid.StartCell);
-        GameObject portal = Instantiate(portalPrefab);
-        portal.transform.position = hexGrid.EndCell.SpawnPosition;
-        portal.transform.localRotation = GetCorridorDirection(hexGrid.EndCell);
         if (OnGetNavmesh != null) OnGetNavmesh();
         if (OnLevelGenerated != null) OnLevelGenerated(this);
     }

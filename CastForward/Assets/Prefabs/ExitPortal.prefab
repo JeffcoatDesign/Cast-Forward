@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 5240433257301419685}
   - component: {fileID: 5346016476352161983}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: Portal
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,6 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5a753007e94a146aa63935281c3afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _verb: Enter
+  _interactionCooldown: 2
+  _actionReference: {fileID: 5517854304490256710, guid: 3008ef13e3224f94794d553ed81265e7, type: 3}
   targetScene: Menu
 --- !u!1 &4106107248700460174
 GameObject:

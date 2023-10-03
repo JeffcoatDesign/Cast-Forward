@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         _player = FindAnyObjectByType<PlayerEntity>().transform;
-        if (Attack == null) Attack = new();
+        Attack ??= new();
     }
 
     private void OnEnable()
@@ -63,7 +63,7 @@ public class EnemyAI : MonoBehaviour
     private void SearchWalkPoint()
     {
         Vector2 randomPoint = Random.insideUnitCircle * walkPointRange;
-        walkPoint = new Vector3(randomPoint.x,transform.position.y,randomPoint.y);
+        walkPoint = new Vector3(randomPoint.x + transform.position.x,transform.position.y,randomPoint.y + transform.position.z);
         if (Physics.Raycast(walkPoint, -transform.up, 2f, _whatIsGround))
             _walkPointSet = true;
     }

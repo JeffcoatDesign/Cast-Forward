@@ -20,10 +20,6 @@ public class PlayerSpells : MonoBehaviour
         _currentMana = _maxMana;
         OnUpdatePlayerSpell?.Invoke(leftSpell, rightSpell);
     }
-    private void Update()
-    {
-        Debug.Log(_maxMana);
-    }
     public void OnLeftSpell (InputAction.CallbackContext ctx)
     {
         if (GameManager.instance.IsPaused) return;
