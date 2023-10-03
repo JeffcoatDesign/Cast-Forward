@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using System.Xml.Schema;
+
 public class PlayerHealthUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private Slider healthSlider;
     private void OnEnable()
     {
         PlayerEntity.OnPlayerHPChange += UpdateHealth;
@@ -13,8 +16,9 @@ public class PlayerHealthUI : MonoBehaviour
     {
         PlayerEntity.OnPlayerHPChange -= UpdateHealth;
     }
-    private void UpdateHealth(float current)
+    private void UpdateHealth(float current, float maxHitpoints)
     {
-        healthText.text = current.ToString("");
+        healthSlider.maxValue = maxHitpoints;
+        healthSlider.value = current;
     }
 }

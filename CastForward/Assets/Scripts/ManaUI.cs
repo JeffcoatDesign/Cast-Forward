@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 public class ManaUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI manaText;
+    [SerializeField] private Slider manaSlider;
     private void OnEnable()
     {
         PlayerSpells.OnUpdatePlayerMana += UpdateMana;
@@ -15,7 +16,7 @@ public class ManaUI : MonoBehaviour
     }
     private void UpdateMana(float current, float max)
     {
-        float quotient = current / max;
-        manaText.text = quotient.ToString("");
+        manaSlider.maxValue = max;
+        manaSlider.value = current;
     }
 }
