@@ -318,7 +318,7 @@ MonoBehaviour:
   noiseScale: 0.7
   minimumDistance: 3
   tileScale: 40.4
-  cellPrefab: {fileID: 1958380087357080583, guid: bcaf5cf32608b774aa45bf551f6e77d3, type: 3}
+  cellPrefab: {fileID: 1958380087357080583, guid: 90be11bc509403d43a73aa5a3e4acecd, type: 3}
   tileset: {fileID: 11400000, guid: 61662368a3dd4eb4d897dd35dcf5c82a, type: 2}
   _startCell: {fileID: 0}
   endCell: {fileID: 0}
