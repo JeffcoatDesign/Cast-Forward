@@ -357,6 +357,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4bc38b52f9117b540bf7834a12f635f8, type: 2}
   - {fileID: 11400000, guid: 604494daf4a1f7644988c22406df0afb, type: 2}
   - {fileID: 11400000, guid: a2cdc8d7b71a7c949a48a306d06e97f8, type: 2}
+  nextLevel: Credits
 --- !u!1 &1083544939
 GameObject:
   m_ObjectHideFlags: 0

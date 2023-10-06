@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Portal : Interactable
 {
-    [SerializeField] private string targetScene;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -18,6 +17,6 @@ public class Portal : Interactable
     }
     private void EnterPortal()
     {
-            SceneManager.LoadScene(targetScene);
+        SceneManager.LoadScene(LevelGenerator.instance.nextLevel);
     }
 }

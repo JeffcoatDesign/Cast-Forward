@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _verb: Pickup
   _interactionCooldown: 2
-  _actionReference: {fileID: 5517854304490256710, guid: 3008ef13e3224f94794d553ed81265e7, type: 3}
+  _actionReference: {fileID: 5517854304490256710, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
   item: {fileID: 0}
 --- !u!65 &1565805808296271702
 BoxCollider:

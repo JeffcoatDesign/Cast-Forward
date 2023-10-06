@@ -17,13 +17,16 @@ public class SpellEquipMenu : MonoBehaviour
     private PlayerSpells _playerSpells;
     private Spell currentSpell;
     bool _lookingForSpells = false;
+    bool _controlEnabled = false;
     private void OnEnable()
     {
         Spell.OnSpellPickup += OnEquipSpell;
+        PauseMenu.OnPauseMenu += DisableControl;
     }
     private void OnDisable()
     {
         Spell.OnSpellPickup -= OnEquipSpell;
+        PauseMenu.OnPauseMenu -= DisableControl;
     }
     void OnEquipSpell (Spell spell)
     {
@@ -34,11 +37,11 @@ public class SpellEquipMenu : MonoBehaviour
         currentSpell = spell;
         _lookingForSpells = true;
         _pickupMenu.SetActive(true);
-        GameManager.instance.PauseGame(true);
+        GameManager.instance.Pause(true);
     }
     private void Update()
     {
-        if (_lookingForSpells)
+        if (_lookingForSpells && _controlEnabled)
         {
             float leftValue = _leftSpellAction.action.ReadValue<float>();
             float rightValue = _rightSpellAction.action.ReadValue<float>();
@@ -48,7 +51,7 @@ public class SpellEquipMenu : MonoBehaviour
                 _playerSpells.SetSpell(currentSpell, 0);
                 _lookingForSpells = false;
                 _pickupMenu.SetActive(false);
-                GameManager.instance.PauseGame(false);
+                GameManager.instance.Pause(false);
             }
             else if (rightValue > 0)
             {
@@ -56,9 +59,14 @@ public class SpellEquipMenu : MonoBehaviour
                 _playerSpells.SetSpell(currentSpell, 1);
                 _lookingForSpells = false;
                 _pickupMenu.SetActive(false);
-                GameManager.instance.PauseGame(false);
+                GameManager.instance.Pause(false);
             }
         }
+    }
+
+    private void DisableControl(bool value)
+    {
+        _controlEnabled = !value;
     }
 
     private void DropSpell (Spell spell)

@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _verb: Open
   _interactionCooldown: 2
-  _actionReference: {fileID: 5517854304490256710, guid: 3008ef13e3224f94794d553ed81265e7, type: 3}
+  _actionReference: {fileID: 5517854304490256710, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
   lootItem: {fileID: 0}
   lidTransform: {fileID: 505204722760099444}
   spawnpoint: {fileID: 2532701466073366962}

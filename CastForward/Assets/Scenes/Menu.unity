@@ -1034,15 +1034,15 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: 3008ef13e3224f94794d553ed81265e7, type: 3}
-  m_PointAction: {fileID: -6032740584325938414, guid: 3008ef13e3224f94794d553ed81265e7, type: 3}
-  m_MoveAction: {fileID: -7491701530474055952, guid: 3008ef13e3224f94794d553ed81265e7, type: 3}
-  m_SubmitAction: {fileID: 445823134135338978, guid: 3008ef13e3224f94794d553ed81265e7, type: 3}
-  m_CancelAction: {fileID: 220839733711956701, guid: 3008ef13e3224f94794d553ed81265e7, type: 3}
-  m_LeftClickAction: {fileID: 8725057390389433679, guid: 3008ef13e3224f94794d553ed81265e7, type: 3}
-  m_MiddleClickAction: {fileID: 7987196780285588628, guid: 3008ef13e3224f94794d553ed81265e7, type: 3}
-  m_RightClickAction: {fileID: -4255500388035621356, guid: 3008ef13e3224f94794d553ed81265e7, type: 3}
-  m_ScrollWheelAction: {fileID: 7191561581295486889, guid: 3008ef13e3224f94794d553ed81265e7, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
+  m_PointAction: {fileID: -6032740584325938414, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
+  m_MoveAction: {fileID: 2606932814584701565, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
+  m_SubmitAction: {fileID: 445823134135338978, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
+  m_CancelAction: {fileID: 220839733711956701, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
+  m_LeftClickAction: {fileID: 8725057390389433679, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
+  m_MiddleClickAction: {fileID: 7987196780285588628, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
+  m_RightClickAction: {fileID: -4255500388035621356, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
+  m_ScrollWheelAction: {fileID: 7191561581295486889, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
   m_TrackedDevicePositionAction: {fileID: 2491210259671418546, guid: 3008ef13e3224f94794d553ed81265e7, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 4848746755215548182, guid: 3008ef13e3224f94794d553ed81265e7, type: 3}
   m_DeselectOnBackgroundClick: 1

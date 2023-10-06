@@ -13,7 +13,13 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject portalPrefab;
     [SerializeField] Item[] _loot;
+    public string nextLevel;
+    public static LevelGenerator instance;
     public Item[] Loot { get { return _loot; } }
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
