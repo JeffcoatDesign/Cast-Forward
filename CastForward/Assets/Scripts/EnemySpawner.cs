@@ -21,7 +21,9 @@ public class EnemySpawner : MonoBehaviour
         {
             GameObject enemy = Instantiate(enemyPrefab);
             enemy.transform.position = closestHit.position;
-            enemy.GetComponent<EnemyAI>().navMeshAgent = enemy.AddComponent<NavMeshAgent>();
+            EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
+            enemyAI.navMeshAgent = enemy.AddComponent<NavMeshAgent>();
+            enemyAI.Initialize();
         }
     }
 }

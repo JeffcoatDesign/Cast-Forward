@@ -7,9 +7,10 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    private Transform _player;
+    private PlayerController _player;
     public NavMeshAgent navMeshAgent;
     [SerializeField] private LayerMask _whatIsGround;
+    [SerializeField] private float _speed = 2.0f;
     [Header("Patrolling")]
     Vector3 walkPoint;
     private bool _walkPointSet;
@@ -21,13 +22,19 @@ public class EnemyAI : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
     public UnityEvent Attack;
+    public float projectileForce = 1;
 
     private void Awake()
     {
-        _player = FindAnyObjectByType<PlayerEntity>().transform;
-        Attack ??= new();
+        if (navMeshAgent != null) Initialize();
     }
 
+    public void Initialize()
+    {
+        _player = FindAnyObjectByType<PlayerController>();
+        Attack ??= new();
+        if (navMeshAgent != null) navMeshAgent.speed = _speed;
+    }
     private void OnEnable()
     {
         EnemyEntity enemyEntity = gameObject.GetComponent<EnemyEntity>();
@@ -69,12 +76,16 @@ public class EnemyAI : MonoBehaviour
     }
     private void ChasePlayer()
     {
-        navMeshAgent.SetDestination(_player.position);
+        navMeshAgent.SetDestination(_player.transform.position);
     }
     public void AttackPlayer()
     {
+        float projectileTimeToTarget = (Vector3.Distance(transform.position, _player.transform.position)) / projectileForce;
+        float randMod = Random.Range(0.9f, 1.1f);
+        projectileTimeToTarget *= randMod;
+        projectileTimeToTarget *= Time.deltaTime;
         navMeshAgent.SetDestination(transform.position);
-        transform.LookAt(_player);
+        transform.LookAt(_player.transform.position + _player.rb.velocity * projectileTimeToTarget);
 
         if (!isAttacking)
         {

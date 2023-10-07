@@ -16,6 +16,7 @@ namespace SpellSystem
         [SerializeField] private CollisionType _collisionType;
 
         public float manaCost;
+        public float ProjectileSpeed { get { return _projectileSpeed; } }
 
         public void SummonSpell(Vector3 spawnPosition, Quaternion direction, bool spawnedByPlayer)
         {

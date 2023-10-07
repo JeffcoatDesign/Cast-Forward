@@ -159,6 +159,7 @@ MonoBehaviour:
   _whatIsGround:
     serializedVersion: 2
     m_Bits: 128
+  _speed: 10
   walkPointRange: 5
   _timeBetweenAttacks: 1
   isAttacking: 0
