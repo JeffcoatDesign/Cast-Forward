@@ -6,8 +6,12 @@ using MapUtility;
 public class LevelGenerator : MonoBehaviour
 {
     public delegate void GetNavMesh();
+    public delegate void LevelGenStarted();
+    public delegate void LevelProgress(float currentValue, float maxValue);
     public delegate void LevelGenerated(LevelGenerator levelGenerator);
     public static event GetNavMesh OnGetNavmesh;
+    public static event LevelGenStarted OnLevelGenStarted;
+    public static event LevelProgress OnLevelGenProgress;
     public static event LevelGenerated OnLevelGenerated;
     [SerializeField] private HexGrid hexGrid;
     [SerializeField] private GameObject playerPrefab;
@@ -28,15 +32,17 @@ public class LevelGenerator : MonoBehaviour
 
     IEnumerator GenerateDungeon()
     {
-        yield return hexGrid.GenerateMap(); 
+        OnLevelGenStarted?.Invoke();
+        yield return hexGrid.GenerateMap();
+        OnLevelGenProgress?.Invoke(1, 4);
         yield return hexGrid.GeneratePaths();
+        OnLevelGenProgress?.Invoke(3, 4);
         GameObject player = Instantiate(playerPrefab);
         player.transform.position = PlayerSpawnpoint.spawnpoint.transform.position;
-        //TODO Correct forward dir in editor
-        //player.transform.localRotation = PlayerSpawnpoint.spawnpoint.transform.localRotation;
+        OnLevelGenProgress?.Invoke(4, 4);
         player.transform.localRotation = GetCorridorDirection(hexGrid.StartCell);
-        if (OnGetNavmesh != null) OnGetNavmesh();
-        if (OnLevelGenerated != null) OnLevelGenerated(this);
+        OnGetNavmesh?.Invoke();
+        OnLevelGenerated?.Invoke(this);
     }
     private Quaternion GetCorridorDirection(HexCell cell)
     {
