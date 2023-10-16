@@ -83,7 +83,6 @@ public class EnemyAI : MonoBehaviour
         float projectileTimeToTarget = (Vector3.Distance(transform.position, _player.transform.position)) / projectileForce;
         float randMod = Random.Range(0.9f, 1.1f);
         projectileTimeToTarget *= randMod;
-        projectileTimeToTarget *= Time.deltaTime;
         navMeshAgent.SetDestination(transform.position);
         transform.LookAt(_player.transform.position + _player.rb.velocity * projectileTimeToTarget);
 

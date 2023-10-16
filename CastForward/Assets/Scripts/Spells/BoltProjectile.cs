@@ -49,7 +49,7 @@ namespace SpellSystem
         {
             if (_rb != null)
             {
-                _rb.AddForce(transform.forward * projectileSpeed, ForceMode.Force);
+                _rb.AddForce(transform.forward * projectileSpeed * Time.deltaTime, ForceMode.Force);
             }
             if (Time.time - spellStart >= spellLifetime)
                 Destroy(gameObject);
