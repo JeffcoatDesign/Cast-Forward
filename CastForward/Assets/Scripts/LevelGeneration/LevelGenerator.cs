@@ -29,14 +29,16 @@ public class LevelGenerator : MonoBehaviour
     {
         StartCoroutine(GenerateDungeon());
     }
-
+    public void UpdateProgress (float cur, float max)
+    {
+        OnLevelGenProgress(cur, max);
+    }
     IEnumerator GenerateDungeon()
     {
         OnLevelGenStarted?.Invoke();
         yield return hexGrid.GenerateMap();
         OnLevelGenProgress?.Invoke(1, 4);
         yield return hexGrid.GeneratePaths();
-        OnLevelGenProgress?.Invoke(3, 4);
         GameObject player = Instantiate(playerPrefab);
         player.transform.position = PlayerSpawnpoint.spawnpoint.transform.position;
         OnLevelGenProgress?.Invoke(4, 4);

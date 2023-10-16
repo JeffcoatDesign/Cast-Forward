@@ -95,11 +95,11 @@ public class HexGrid : MonoBehaviour
                 }
             }
         }
-
         List<Vector2> points = GetRandomPoints(width, height);
         List<Vector2Pair> pointPairs = MapGeneration.GeneratePointPairs(points);
         foreach (Vector2Pair pointPair in pointPairs)
         {
+            LevelGenerator.instance.UpdateProgress(pointPairs.IndexOf(pointPair), pointPairs.Count);
             cells[pointPair.Point1.x, pointPair.Point1.y].isDecentivized = false;
             cells[pointPair.Point2.x, pointPair.Point2.y].isDecentivized = false;
             yield return FindPathFromVectorPair(pointPair);
@@ -185,10 +185,13 @@ public class HexGrid : MonoBehaviour
 
     public IEnumerator CheckForPaths ()
     {
+        int i = 0;
         foreach (HexCell cell in cells)
         {
+            LevelGenerator.instance.UpdateProgress(i, cells.Length);
             yield return null;
             cell.CheckNeighbors();
+            i++;
         }
     }
 
