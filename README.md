@@ -1,6 +1,15 @@
 # Cast-Forward
 https://jeffcoatdesign.github.io/Cast-Forward/
 # Changelog:
+v0.1.1  
++ Chest Models
++ New Spell Particles
++ Pillars
++ Wall running walls
++ New portal and effects
++ Torches  
+
+
 v0.0.4  
 + Loot chests
 + Loot Rooms

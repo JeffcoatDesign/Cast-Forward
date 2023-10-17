@@ -17,7 +17,7 @@ public class SpellEquipMenu : MonoBehaviour
     private PlayerSpells _playerSpells;
     private Spell currentSpell;
     bool _lookingForSpells = false;
-    bool _controlEnabled = false;
+    bool _controlEnabled = true;
     private void OnEnable()
     {
         Spell.OnSpellPickup += OnEquipSpell;

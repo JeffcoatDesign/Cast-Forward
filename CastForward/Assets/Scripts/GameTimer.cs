@@ -8,7 +8,18 @@ public class GameTimer : Singleton<GameTimer>
     private float _startTime;
     private float _currentTime;
     private TextMeshProUGUI _timerText;
-    void Start()
+
+    private void OnEnable()
+    {
+        LevelGenerator.OnLevelGenerated += StartTimer;
+    }
+
+    private void OnDisable()
+    {
+        LevelGenerator.OnLevelGenerated -= StartTimer;
+    }
+
+    void StartTimer(LevelGenerator levelGenerator)
     {
         _startTime = Time.time;
         _timerText = GetComponent<TextMeshProUGUI>();
@@ -16,7 +27,6 @@ public class GameTimer : Singleton<GameTimer>
             _timerText = gameObject.AddComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         _currentTime += Time.deltaTime;
