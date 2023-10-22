@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
     [Header("Patrolling")]
     Vector3 walkPoint;
     private bool _walkPointSet;
+    private bool _processing = true;
     public float walkPointRange;
 
     [Header("Attacking")]
@@ -22,7 +23,7 @@ public class EnemyAI : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
     public UnityEvent Attack;
-    public float projectileForce = 1;
+    public float projectileForce = 0.1f;
 
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class EnemyAI : MonoBehaviour
     }
     private void Update()
     {
+        if (!_processing) return;
         Collider[] sight = Physics.OverlapSphere(transform.position, sightRange);
         Collider[] attack = Physics.OverlapSphere(transform.position, attackRange);
         playerInSightRange = sight.Any(c => c.CompareTag("Player"));
@@ -84,7 +86,8 @@ public class EnemyAI : MonoBehaviour
         float randMod = Random.Range(0.9f, 1.1f);
         projectileTimeToTarget *= randMod;
         navMeshAgent.SetDestination(transform.position);
-        transform.LookAt(_player.transform.position + _player.rb.velocity * projectileTimeToTarget);
+        transform.LookAt(_player.transform.position + _player.rb.velocity * projectileTimeToTarget,Vector3.up);
+        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
 
         if (!isAttacking)
         {
@@ -102,6 +105,8 @@ public class EnemyAI : MonoBehaviour
 
     void StopAI()
     {
-
+        _processing = false;
+        Collider collider = GetComponent<Collider>();
+        if (collider != null) collider.enabled = false;
     }
 }

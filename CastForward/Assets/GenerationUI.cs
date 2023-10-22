@@ -13,6 +13,12 @@ public class GenerationUI : MonoBehaviour
         LevelGenerator.OnLevelGenProgress += ProgressSlider;
         LevelGenerator.OnLevelGenerated += OnFinishGenerating;
     }
+    private void OnDisable()
+    {
+        LevelGenerator.OnLevelGenStarted -= OnStartGenerating;
+        LevelGenerator.OnLevelGenProgress -= ProgressSlider;
+        LevelGenerator.OnLevelGenerated -= OnFinishGenerating;
+    }
     private void ProgressSlider (float current, float max) {
         slider.maxValue = max;
         slider.value = current;
