@@ -1,6 +1,12 @@
 # Cast-Forward
 https://jeffcoatdesign.github.io/Cast-Forward/
 # Changelog:
+  
+v0.1.2  
++ Imported a Skeleton Asset
++ Replaced Enemies with Animated Skeleton  
+
+
 v0.1.1  
 + Chest Models
 + New Spell Particles
