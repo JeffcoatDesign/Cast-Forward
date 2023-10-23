@@ -51,3 +51,10 @@ v0.0.1
 # Third-Party Assets
 RPG Skeleton  
 https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/rpg-skeleton-35463  
+
+
+# References
+Triangulation
+https://www.habrador.com/tutorials/math/10-triangulation/  
+Hex Map
+https://catlikecoding.com/unity/tutorials/hex-map/part-1/  
