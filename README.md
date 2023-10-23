@@ -47,3 +47,7 @@ v0.0.1
 + Created the Player Controller
 + Implemented Hexgrid
 + Created a Timer
+
+# Third-Party Assets
+RPG Skeleton  
+https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/rpg-skeleton-35463  
