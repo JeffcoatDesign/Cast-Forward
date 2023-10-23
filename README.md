@@ -58,3 +58,7 @@ Triangulation
 https://www.habrador.com/tutorials/math/10-triangulation/  
 Hex Map
 https://catlikecoding.com/unity/tutorials/hex-map/part-1/  
+Wall Running
+https://www.youtube.com/watch?v=gNt9wBOrQO4  
+AI
+https://www.youtube.com/watch?v=UjkSFoLxesw  
