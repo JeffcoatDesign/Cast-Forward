@@ -29,6 +29,8 @@ public class PauseMenu : MonoBehaviour
         OnPauseMenu?.Invoke(pauseMenuVisible);
         GameManager.instance.Pause(pauseMenuVisible);
         pauseMenuObj.SetActive(pauseMenuVisible);
+        Cursor.lockState = pauseMenuVisible ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = pauseMenuVisible;
     }
     void LockPause ()
     {

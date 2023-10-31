@@ -9,8 +9,7 @@ public class PlayerController : MonoBehaviour
     public static event SetFocus OnSetFocus;
 
     public Rigidbody rb;
-
-    [SerializeField] private CinemachineVirtualCamera _vCam;
+    [SerializeField] private PlayerVCamController _playerVCamController;
     [SerializeField] private float _playerSpeed = 100f;
     [SerializeField] private float _strafeModifier = 0.6f;
     [SerializeField] private float _sprintModifier = 2f;
@@ -47,9 +46,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask WhatIsWall { get { return _whatIsWall; } }
     public LayerMask WhatIsGround { get { return _whatIsGround; } }
     public Vector2 MovementInput { get { return _movementInput; } }
-    public CinemachineVirtualCamera PlayerVCam { get { return _vCam; } }
+    public PlayerVCamController PlayerVCamController { get { return _playerVCamController; } }
     public Quaternion CameraForward { get {
-            Quaternion flattened = Quaternion.LookRotation(-Vector3.up, _vCam.transform.forward) * Quaternion.Euler(-90f, 0, 0);
+            Quaternion flattened = Quaternion.LookRotation(-Vector3.up, _playerVCamController.transform.forward) * Quaternion.Euler(-90f, 0, 0);
             return flattened; } }
 
     IPlayerState _currentState = new IStandingState();
@@ -76,7 +75,7 @@ public class PlayerController : MonoBehaviour
     public void ToggleSprint(bool value)
     {
         _sprintActive = value;
-        PlayerVCam.m_Lens.FieldOfView = _sprintActive ? 100 : 80;
+        _playerVCamController.SetTargetFOV(_sprintActive ? 100 : 80);
     }
 
     public void SetState(IPlayerState playerState)

@@ -26,7 +26,7 @@ namespace PlayerStates {
         public void Exit ()
         {
             _pc.rb.useGravity = true;
-            _pc.PlayerVCam.m_Lens.Dutch = 0;
+            _pc.PlayerVCamController.SetDutch(0);
         }
         public void HandleInput()
         {
@@ -39,7 +39,7 @@ namespace PlayerStates {
             }
             else if ((WallLeft || WallRight) && _pc.MovementInput.y > 0 && AboveGround() && Time.time - _wallRunTimer < _pc.MaxWallRunTime)
             {
-                _pc.PlayerVCam.m_Lens.Dutch = WallRight ? _pc.WallDutchAngle : -_pc.WallDutchAngle;
+                _pc.PlayerVCamController.SetDutch(WallRight ? _pc.WallDutchAngle : -_pc.WallDutchAngle);
 
                 Vector3 wallNormal = WallRight ? RightWallHit.normal : leftWallHit.normal;
                 Vector3 wallForward = Vector3.Cross(wallNormal, _pc.transform.up);

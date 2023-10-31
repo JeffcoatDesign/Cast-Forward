@@ -2,6 +2,13 @@
 https://jeffcoatdesign.github.io/Cast-Forward/
 # Changelog:
   
+v0.1.3  
++ Textured Books
++ Added Table
++ Added Audio Controls
++ Added Music and SFX
++ Added Camera Shake  
+  
 v0.1.2  
 + Imported a Skeleton Asset
 + Replaced Enemies with Animated Skeleton  

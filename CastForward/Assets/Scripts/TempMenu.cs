@@ -6,6 +6,7 @@ public class TempMenu : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
+        AudioManager.Instance.PlaySong("Audio/Path to Lake Land");
     }
     public void LoadPlayground()
     {

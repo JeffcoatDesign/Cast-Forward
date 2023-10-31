@@ -16,6 +16,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private HexGrid hexGrid;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject portalPrefab;
+    [SerializeField] private AudioClip songToPlay;
     [SerializeField] Item[] _loot;
     public string nextLevel;
     public static LevelGenerator instance;
@@ -42,6 +43,7 @@ public class LevelGenerator : MonoBehaviour
         GameObject player = Instantiate(playerPrefab);
         player.transform.position = PlayerSpawnpoint.spawnpoint.transform.position;
         OnLevelGenProgress?.Invoke(4, 4);
+        AudioManager.Instance.PlaySong(songToPlay);
         player.transform.localRotation = GetCorridorDirection(hexGrid.StartCell);
         OnGetNavmesh?.Invoke();
         OnLevelGenerated?.Invoke(this);

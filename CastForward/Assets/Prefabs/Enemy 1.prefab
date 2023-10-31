@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2192479489918787637
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8442652059083486490}
-  m_Layer: 8
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8442652059083486490
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2192479489918787637}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.569}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6753455033375103547}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3765717082949903098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1869,7 +1838,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8442652059083486490}
   - {fileID: 3770049640320673812}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1990,5 +1958,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 3824285673694655088}
+  _walkSounds:
+  - {fileID: 8300000, guid: f2eec96aa044c8a418821972a2cd55df, type: 3}
+  - {fileID: 8300000, guid: ee07d29a7ce7677408ed517a801b195b, type: 3}
+  - {fileID: 8300000, guid: 409e81ff7a6b1b04b962a998619b2bc6, type: 3}
+  - {fileID: 8300000, guid: aab8172cd4c382d4ab2a88d3aeea2f07, type: 3}
+  - {fileID: 8300000, guid: aa8003758cfa15741adea88b1d10dfe8, type: 3}
+  - {fileID: 8300000, guid: 2dde2a0dd7c26234faf5e0cb1a545276, type: 3}
+  - {fileID: 8300000, guid: 748d88bc43993664ab6cb1d5390cd170, type: 3}
+  - {fileID: 8300000, guid: b4fd3cdb386bf0443a17c76871ffe957, type: 3}
+  - {fileID: 8300000, guid: 3f84421f44037b041a28debbb3a6e298, type: 3}
+  - {fileID: 8300000, guid: 15f5e0403c5c13243b41439a6ec3fa00, type: 3}
   enemyEntity: {fileID: 7749380103477771865}
   weaponHitbox: {fileID: 8405844672093365020}
