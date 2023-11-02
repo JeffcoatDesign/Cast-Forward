@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2456116519878245717}
   - component: {fileID: 358216399943884830}
   - component: {fileID: 8809247938785973083}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Chest
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 6089136076029481493}
   - component: {fileID: 5616675598975705544}
   - component: {fileID: 3781078422530243114}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2532701466073366962}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LootSpawnpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 505204722760099444}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: lidHinge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 7296389098296227168}
   - component: {fileID: 5533628717051519572}
   - component: {fileID: 302599469683046606}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
