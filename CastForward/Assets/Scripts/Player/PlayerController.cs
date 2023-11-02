@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = Physics.Raycast(transform.position, -Vector3.up, 1.1f, WhatIsGround);
+        isGrounded = Physics.Raycast(transform.position, -Vector3.up, 1.6f, WhatIsGround);
         transform.rotation = CameraForward;
         _currentState.HandleInput();
 

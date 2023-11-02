@@ -9,7 +9,7 @@ namespace PlayerStates {
 //TODO: wallruntimer
         PlayerController _pc;
         private float _wallRunTimer = 0f;
-        private float _wallCheckDistance = 0.7f;
+        private float _wallCheckDistance = 1.2f;
         private float _minWallrunHeight = 1f;
         private float _dismountForce = 10f;
         private RaycastHit leftWallHit;
