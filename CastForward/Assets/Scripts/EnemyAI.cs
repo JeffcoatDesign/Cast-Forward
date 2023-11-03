@@ -105,8 +105,16 @@ public class EnemyAI : MonoBehaviour
 
     void StopAI()
     {
+        navMeshAgent.SetDestination(transform.position);
         _processing = false;
         Collider collider = GetComponent<Collider>();
         if (collider != null) collider.enabled = false;
+    }
+
+    public void Resurrect() {
+        navMeshAgent.SetDestination(transform.position);
+        _processing = true;
+        Collider collider = GetComponent<Collider>();
+        if (collider != null) collider.enabled = true;
     }
 }

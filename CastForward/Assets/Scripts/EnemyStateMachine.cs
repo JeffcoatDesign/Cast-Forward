@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyStateMachine : MonoBehaviour
 {
@@ -10,14 +11,21 @@ public class EnemyStateMachine : MonoBehaviour
     public EnemyEntity enemyEntity;
     private Vector3 lastPosition;
     public EnemyMeleeHitbox weaponHitbox;
+    public UnityEvent OnResurrected;
     float _timeSinceWalkSound = 0;
+    private void Start()
+    {
+        OnResurrected ??= new ();
+    }
     public void OnEnable()
     {
         enemyEntity.OnDeath += Die;
+        enemyEntity.OnResurrect += Resurrect;
     }
     public void OnDisable()
     {
         enemyEntity.OnDeath -= Die;
+        enemyEntity.OnResurrect -= Resurrect;
     }
 
     private void Die ()
@@ -28,6 +36,11 @@ public class EnemyStateMachine : MonoBehaviour
     public void Attack ()
     {
         _animator.SetTrigger("Attack1h1");
+    }
+
+    void Resurrect ()
+    {
+        StartCoroutine(WaitForResurrected());
     }
     private void Update()
     {
@@ -41,10 +54,20 @@ public class EnemyStateMachine : MonoBehaviour
         }
         if (enemyEntity.isAlive)
         {
-            _animator.SetFloat("speedv", speed);
+            _animator.SetFloat("speedh", speed);
         }
         lastPosition = transform.position;
 
         weaponHitbox.isAttacking = _animator.GetCurrentAnimatorStateInfo(0).IsName("Attack1h1");
+    }
+
+    IEnumerator WaitForResurrected ()
+    {
+        _animator.SetTrigger("Resurrect");
+        yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+        _animator.SetTrigger("Up");
+        yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+        OnResurrected?.Invoke();
+        yield return null;
     }
 }

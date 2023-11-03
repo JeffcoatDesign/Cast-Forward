@@ -9,7 +9,15 @@ public class DeathVoid : MonoBehaviour
         if (other.CompareTag("Player") || other.CompareTag("Enemy"))
         {
             Entity ent = other.GetComponent<Entity>();
-            ent.GetHit(ent.CurrentHP);
+            if (other.CompareTag("Player"))
+            {
+                ent.GetHit(ent.MaxHitpoints / 6);
+                ent.transform.position = PlayerSafeSpot.playerSafeSpot.GetLastSafeSpot;
+            }
+            else if (other.CompareTag("Enemy"))
+            {
+                ent.GetHit(ent.MaxHitpoints);
+            }
         }
     }
 }

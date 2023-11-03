@@ -8,6 +8,7 @@ public class EnemyEntity : Entity
     public delegate void ThisDeath();
     public static event EnemyDeath OnEnemyDeath;
     public event ThisDeath OnDeath;
+    public event ThisDeath OnResurrect;
     public bool isAlive = true;
     public override void GetHit(float amount)
     {
@@ -18,5 +19,13 @@ public class EnemyEntity : Entity
         isAlive = false;
         OnEnemyDeath?.Invoke();
         OnDeath?.Invoke();
+    }
+
+    public void Resurrect ()
+    {
+        GetHeal(MaxHitpoints);
+        isAlive = true;
+        hasDied = false;
+        OnResurrect?.Invoke();
     }
 }

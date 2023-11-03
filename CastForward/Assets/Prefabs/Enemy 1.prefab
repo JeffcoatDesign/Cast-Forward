@@ -1818,6 +1818,7 @@ GameObject:
   - component: {fileID: 7749380103477771865}
   - component: {fileID: 3756735504030194850}
   - component: {fileID: 333381435124399703}
+  - component: {fileID: 3359738344086034899}
   m_Layer: 8
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -1917,6 +1918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHitpoints: 50
+  hasDied: 0
   isAlive: 1
 --- !u!54 &3756735504030194850
 Rigidbody:
@@ -1971,3 +1973,34 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 15f5e0403c5c13243b41439a6ec3fa00, type: 3}
   enemyEntity: {fileID: 7749380103477771865}
   weaponHitbox: {fileID: 8405844672093365020}
+  OnResurrected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4839774853705092203}
+        m_TargetAssemblyTypeName: EnemyAI, Assembly-CSharp
+        m_MethodName: Resurrect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3359738344086034899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6583740149842715992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a578c65f6a04548beba2a7bbc15b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyAI: {fileID: 4839774853705092203}
+  _enemyEntity: {fileID: 7749380103477771865}
+  _timeToResurrect: 10
+  _resChances: 1

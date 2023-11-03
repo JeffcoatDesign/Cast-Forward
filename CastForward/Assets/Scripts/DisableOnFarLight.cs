@@ -6,6 +6,7 @@ public class DisableOnFarLight : MonoBehaviour
 {
     public Light componentToControl;
     public float maxDistance;
+    public float importantDistance = 20f;
     private PlayerEntity _player;
 
     // Update is called once per frame
@@ -20,7 +21,13 @@ public class DisableOnFarLight : MonoBehaviour
                 componentToControl.enabled = false;
             }
             else
+            {
                 componentToControl.enabled = true;
+                if (Vector3.Distance(_player.transform.position, transform.position) < importantDistance)
+                    componentToControl.renderMode = LightRenderMode.ForcePixel;
+                else
+                    componentToControl.renderMode = LightRenderMode.ForceVertex;
+            }
         }
     }
 
