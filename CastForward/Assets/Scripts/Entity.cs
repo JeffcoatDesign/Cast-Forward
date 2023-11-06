@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    public delegate void EntityDeath();
-    public static event EntityDeath OnEntityDeath;
+    public delegate void VoidEvent();
+    public delegate void HealthEvent(float current, float max);
+    public static event VoidEvent OnEntityDeath;
+    public event HealthEvent OnUpdateHP;
     [SerializeField] private float _maxHitpoints;
     private float _currentHitpoints;
     public bool hasDied = false;
@@ -14,6 +16,7 @@ public class Entity : MonoBehaviour
     private void Awake()
     {
         _currentHitpoints = _maxHitpoints;
+        OnUpdateHP?.Invoke(_currentHitpoints, _maxHitpoints);
     }
     void Update()
     {
@@ -28,11 +31,13 @@ public class Entity : MonoBehaviour
     public virtual void GetHit(float amount)
     {
         _currentHitpoints -= amount;
+        OnUpdateHP?.Invoke(_currentHitpoints, _maxHitpoints);
     }
     public virtual void GetHeal(float amount)
     {
         _currentHitpoints += amount;
         _currentHitpoints = Mathf.Clamp(_currentHitpoints, 0, _maxHitpoints);
+        OnUpdateHP?.Invoke(_currentHitpoints, _maxHitpoints);
     }
 
     public virtual void Die()

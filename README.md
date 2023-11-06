@@ -2,6 +2,13 @@
 https://jeffcoatdesign.github.io/Cast-Forward/
 # Changelog:
   
+v0.1.4  
++ Added Spell Exposions
++ Added Spell Sounds
++ Added Health Bars
++ Added Loculi
++ Added Additional Lighting
+  
 v0.1.3  
 + Textured Books
 + Added Table

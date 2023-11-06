@@ -9,10 +9,12 @@ public class EnemyEntity : Entity
     public static event EnemyDeath OnEnemyDeath;
     public event ThisDeath OnDeath;
     public event ThisDeath OnResurrect;
+    public event ThisDeath OnHit;
     public bool isAlive = true;
     public override void GetHit(float amount)
     {
         base.GetHit(amount);
+        OnHit?.Invoke();
     }
     public override void Die()
     {

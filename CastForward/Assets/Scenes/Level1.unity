@@ -300,7 +300,7 @@ MonoBehaviour:
   hexGrid: {fileID: 939883061}
   playerPrefab: {fileID: 6370994303817040476, guid: e10cd5b7c4de76542a7b9778453066e9, type: 3}
   portalPrefab: {fileID: 4106107248700460174, guid: db6effccadd0a7541bfb5cebc7f1d781, type: 3}
-  songToPlay: {fileID: 8300000, guid: 25257f366848fc84f8e3ef4624f5e2ca, type: 3}
+  songToPlay: {fileID: 8300000, guid: c1d4f4ff5ac82b349b2a00ffc59248e9, type: 3}
   _loot:
   - {fileID: 11400000, guid: 4bc38b52f9117b540bf7834a12f635f8, type: 2}
   - {fileID: 11400000, guid: 604494daf4a1f7644988c22406df0afb, type: 2}
