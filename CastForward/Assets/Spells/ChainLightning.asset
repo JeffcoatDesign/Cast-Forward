@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3483726d431f4204ea45d15aa81c0740, type: 3}
+  m_Name: ChainLightning
+  m_EditorClassIdentifier: 
+  ItemName: Chain Lightning
+  itemPrefab: {fileID: 5734729433855749561, guid: 4a0fb5e95d91ea9469d18133d32417eb, type: 3}
+  mesh: {fileID: 381947130776709163, guid: 540dab26906ae154dbaf81f7f7addacb, type: 3}
+  material: {fileID: 2100000, guid: 6e9b30f96f82d324fad0975226fd4928, type: 2}
+  inventorySprite: {fileID: 21300000, guid: 10e5eb137f4bc5d4dad3406c661074a9, type: 3}
+  _projectilePrefab: {fileID: 6560792736418771161, guid: cd8c80993db980740b9589c7f0519a72, type: 3}
+  _impactPrefab: {fileID: 0}
+  _projectileSpeed: 1
+  _damageMultiplier: 1
+  castDelay: 0.4
+  _isAnchored: 1
+  _collisionType: 0
+  manaCost: 10

@@ -13,14 +13,17 @@ namespace SpellSystem
         [SerializeField] private GameObject _impactPrefab;
         [SerializeField] private float _projectileSpeed;
         [SerializeField] private float _damageMultiplier;
+        public float castDelay = 0.1f;
+        [SerializeField] private bool _isAnchored = false;
         [SerializeField] private CollisionType _collisionType;
 
         public float manaCost;
         public float ProjectileSpeed { get { return _projectileSpeed; } }
 
-        public void SummonSpell(Vector3 spawnPosition, Quaternion direction, bool spawnedByPlayer)
+        public void SummonSpell(Transform castPoint, bool spawnedByPlayer)
         {
-            SpellProjectile projectile = Instantiate(_projectilePrefab, spawnPosition, direction).GetComponent<SpellProjectile>();
+            SpellProjectile projectile = Instantiate(_projectilePrefab, castPoint.position, castPoint.rotation).GetComponent<SpellProjectile>();
+            if (_isAnchored) projectile.transform.parent = castPoint;
             projectile.Initialize();
             projectile.projectileSpeed = _projectileSpeed;
             projectile.damageMultiplier = _damageMultiplier;

@@ -12,33 +12,48 @@ public class PlayerSpells : MonoBehaviour
     public Spell leftSpell, rightSpell;
     [SerializeField] private float _maxMana;
     [SerializeField] private float _staminaRegenRate;
+    [SerializeField] private InputActionReference _leftActionReference;
+    [SerializeField] private InputActionReference _rightActionReference;
     private float _currentMana;
     [SerializeField] private Transform playerLeftTransform;
     [SerializeField] private Transform playerRightTransform;
+    private bool _canCastLeft = true;
+    private bool _canCastRight = true;
     private void Start()
     {
         _currentMana = _maxMana;
         OnUpdatePlayerSpell?.Invoke(leftSpell, rightSpell);
     }
-    public void OnLeftSpell (InputAction.CallbackContext ctx)
+    private void Update()
+    {
+        if (_leftActionReference.action.IsPressed())
+            OnLeftSpell();
+        if (_rightActionReference.action.IsPressed())
+            OnRightSpell();
+    }
+    void OnLeftSpell ()
     {
         if (GameManager.instance.IsPaused) return;
         bool canAffordSpell = _currentMana >= leftSpell.manaCost;
-        if (canAffordSpell && ctx.performed && leftSpell != null)
+        if (_canCastLeft && canAffordSpell && leftSpell != null)
         {
+            _canCastLeft = false;
+            Invoke(nameof(DelayLeftSpell), leftSpell.castDelay);
             _currentMana -= leftSpell.manaCost;
-            leftSpell.SummonSpell(playerLeftTransform.position, playerLeftTransform.rotation, true);
+            leftSpell.SummonSpell(playerLeftTransform, true);
             OnUpdatePlayerMana?.Invoke(_currentMana, _maxMana);
         }
     }
-    public void OnRightSpell(InputAction.CallbackContext ctx)
+    void OnRightSpell()
     {
         if (GameManager.instance.IsPaused) return;
         bool canAffordSpell = _currentMana >= rightSpell.manaCost;
-        if (canAffordSpell && ctx.performed && rightSpell != null)
+        if (_canCastRight && canAffordSpell && rightSpell != null)
         {
+            _canCastRight = false;
+            Invoke(nameof(DelayRightSpell), rightSpell.castDelay);
             _currentMana -= rightSpell.manaCost;
-            rightSpell.SummonSpell(playerRightTransform.position, playerRightTransform.rotation, true);
+            rightSpell.SummonSpell(playerRightTransform, true);
             OnUpdatePlayerMana?.Invoke(_currentMana, _maxMana);
         }
     }
@@ -47,6 +62,14 @@ public class PlayerSpells : MonoBehaviour
         if (slot == 0) leftSpell = spell;
         else if (slot == 1) rightSpell = spell;
         OnUpdatePlayerSpell?.Invoke(leftSpell, rightSpell);
+    }
+    void DelayLeftSpell ()
+    {
+        _canCastLeft = true;
+    }
+    void DelayRightSpell ()
+    {
+        _canCastRight = true;
     }
     private void FixedUpdate()
     {

@@ -21,7 +21,7 @@ public class EnemySpells : MonoBehaviour
     }
     public void OnSpellAttack()
     {
-        selectedSpell.SummonSpell(spellTransform.position, spellTransform.rotation, false);
+        selectedSpell.SummonSpell(spellTransform, false);
         _currentMana -= selectedSpell.manaCost;
         SelectSpell();
     }
