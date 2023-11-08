@@ -5,9 +5,10 @@ using TMPro;
 
 public class GameTimer : Singleton<GameTimer>
 {
+    public delegate void UpdateTimer(float currentTime, float startTime);
+    public static event UpdateTimer OnUpdateTimer;
     private float _startTime;
     private float _currentTime;
-    private TextMeshProUGUI _timerText;
 
     private void OnEnable()
     {
@@ -22,19 +23,17 @@ public class GameTimer : Singleton<GameTimer>
     void StartTimer(LevelGenerator levelGenerator)
     {
         _startTime = Time.time;
-        _timerText = GetComponent<TextMeshProUGUI>();
-        if (_timerText == null)
-            _timerText = gameObject.AddComponent<TextMeshProUGUI>();
     }
 
     void Update()
     {
         _currentTime += Time.deltaTime;
-        if (_timerText != null)
-        {
-            int minutes = (int)_currentTime / 60;
-            int seconds = (int)_currentTime % 60;
-            _timerText.text = (minutes.ToString("F0") + ":" + seconds.ToString("00"));
-        }
+        OnUpdateTimer?.Invoke(_currentTime, _startTime);
+        //if (_timerText != null)
+        //{
+        //    int minutes = (int)_currentTime / 60;
+        //    int seconds = (int)_currentTime % 60;
+        //    _timerText.text = (minutes.ToString("F0") + ":" + seconds.ToString("00"));
+        //}
     }
 }

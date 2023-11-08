@@ -21,18 +21,19 @@ public class EnemyStateMachine : MonoBehaviour
     {
         enemyEntity.OnDeath += Die;
         enemyEntity.OnResurrect += Resurrect;
-        enemyEntity.OnHit += GetHit;
+        enemyEntity.OnStagger += GetHit;
     }
     public void OnDisable()
     {
         enemyEntity.OnDeath -= Die;
         enemyEntity.OnResurrect -= Resurrect;
-        enemyEntity.OnHit -= GetHit;
+        enemyEntity.OnStagger -= GetHit;
     }
 
     private void Die ()
     {
         _animator.SetTrigger("Fall1");
+        weaponHitbox.isAttacking = false;
     }
 
     public void Attack ()
@@ -42,6 +43,7 @@ public class EnemyStateMachine : MonoBehaviour
     public void GetHit ()
     {
         _animator.SetTrigger("Hit1");
+        weaponHitbox.isAttacking = false;
     }
 
     void Resurrect ()

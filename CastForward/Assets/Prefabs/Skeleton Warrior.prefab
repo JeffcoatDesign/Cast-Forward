@@ -1882,12 +1882,12 @@ MonoBehaviour:
   _whatIsGround:
     serializedVersion: 2
     m_Bits: 128
-  _speed: 10
+  _speed: 15
   walkPointRange: 5
   _timeBetweenAttacks: 1
   isAttacking: 0
-  sightRange: 15
-  attackRange: 1
+  sightRange: 20
+  attackRange: 2
   playerInSightRange: 0
   playerInAttackRange: 0
   Attack:

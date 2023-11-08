@@ -9,12 +9,14 @@ public class EnemyEntity : Entity
     public static event EnemyDeath OnEnemyDeath;
     public event ThisDeath OnDeath;
     public event ThisDeath OnResurrect;
-    public event ThisDeath OnHit;
+    public event ThisDeath OnStagger;
     public bool isAlive = true;
+    [SerializeField] private float staggerThreshold = 0.3f;
     public override void GetHit(float amount)
     {
+        if (amount / CurrentHP > staggerThreshold)
+            OnStagger?.Invoke();
         base.GetHit(amount);
-        OnHit?.Invoke();
     }
     public override void Die()
     {
