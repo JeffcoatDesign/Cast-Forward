@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1581464696854713179}
   - component: {fileID: 8682833265939182578}
   - component: {fileID: 7891623853386696583}
-  - component: {fileID: 5901088204419956951}
+  - component: {fileID: 888228092136658152}
+  - component: {fileID: 9163931356820448244}
   m_Layer: 9
   m_Name: PoisonImpact
   m_TagString: Projectile
@@ -107,7 +108,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5901088204419956951
+--- !u!114 &888228092136658152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2992758300039189206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba91feec48428b749af1bac86dd6d2b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 4
+  tickTime: 0.2
+  damage: 1
+  maxStacks: 2
+  canStagger: 0
+--- !u!114 &9163931356820448244
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

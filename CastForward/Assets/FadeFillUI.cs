@@ -30,7 +30,6 @@ public class FadeFillUI : MonoBehaviour
     {
         float fadeAmount = 0f;
         float startTime = Time.time;
-        Debug.Log("started fade in");
         while (fadeAmount < 1)
         {
             fadeAmount = Mathf.Lerp(0f, 1f, (Time.time - startTime) / _fadeTime);
@@ -44,7 +43,6 @@ public class FadeFillUI : MonoBehaviour
     {
         float fadeAmount = 1f;
         float startTime = Time.time;
-        Debug.Log("started fade out");
         while (fadeAmount > 0)
         {
             fadeAmount = Mathf.Lerp(1f, 0f, (Time.time - startTime) / _fadeTime);

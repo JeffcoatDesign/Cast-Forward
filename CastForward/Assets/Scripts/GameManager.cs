@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
             Time.timeScale = _defaultTimeScale;
         }
     }
-    
     public void ResetPause(Scene scene, LoadSceneMode loadSceneMode)
     {
         _pauseCount = 0;

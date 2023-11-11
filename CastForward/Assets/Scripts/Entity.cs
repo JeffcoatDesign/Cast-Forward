@@ -32,6 +32,27 @@ public class Entity : MonoBehaviour
     {
         _currentHitpoints -= amount;
         OnUpdateHP?.Invoke(_currentHitpoints, _maxHitpoints);
+        _currentHitpoints = Mathf.Clamp(_currentHitpoints, 0, _maxHitpoints);
+    }
+    public virtual void GetHit(float amount, bool canStagger)
+    {
+        _currentHitpoints -= amount;
+        OnUpdateHP?.Invoke(_currentHitpoints, _maxHitpoints);
+        _currentHitpoints = Mathf.Clamp(_currentHitpoints, 0, _maxHitpoints);
+    }
+    public virtual void GetHit(float amount, SpellSystem.ISpellEffect spellEffect)
+    {
+        _currentHitpoints -= amount;
+        OnUpdateHP?.Invoke(_currentHitpoints, _maxHitpoints);
+        if (amount > 0 && spellEffect != null)
+        {
+            if (GetComponents(spellEffect.GetType()).Length < spellEffect.MaxStacks)
+            {
+                SpellSystem.ISpellEffect newEffect = (SpellSystem.ISpellEffect)gameObject.AddComponent(spellEffect.GetType());
+                newEffect.Visit(spellEffect);
+            }
+        }
+        _currentHitpoints = Mathf.Clamp(_currentHitpoints, 0, _maxHitpoints);
     }
     public virtual void GetHeal(float amount)
     {

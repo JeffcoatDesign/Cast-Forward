@@ -1,3 +1,4 @@
+using SpellSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,18 @@ public class EnemyEntity : Entity
         if (amount / CurrentHP > staggerThreshold)
             OnStagger?.Invoke();
         base.GetHit(amount);
+    }
+    public override void GetHit(float amount, bool canStagger)
+    {
+        if (canStagger && amount / CurrentHP > staggerThreshold)
+            OnStagger?.Invoke();
+        base.GetHit(amount);
+    }
+    public override void GetHit(float amount, ISpellEffect spellEffect)
+    {
+        if (((spellEffect != null) && spellEffect.CanStagger) && amount / CurrentHP > staggerThreshold)
+            OnStagger?.Invoke();
+        base.GetHit(amount, spellEffect);
     }
     public override void Die()
     {

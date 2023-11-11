@@ -1131,7 +1131,7 @@ GameObject:
   - component: {fileID: 5070653298769265134}
   - component: {fileID: 2182900963401165877}
   - component: {fileID: 7326360961689930320}
-  - component: {fileID: 8756688207081023605}
+  - component: {fileID: 1518161326852782111}
   m_Layer: 6
   m_Name: northeastwall (3)
   m_TagString: Untagged
@@ -1204,7 +1204,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8756688207081023605
+--- !u!65 &1518161326852782111
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1223,8 +1223,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 9.999999, y: 8.000001, z: 0.29999998}
-  m_Center: {x: -0.00000047683716, y: 0, z: 0.0000009536743}
+  m_Size: {x: 10, y: 8.000001, z: 0.3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4481790915090118577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1692,7 +1692,7 @@ GameObject:
   - component: {fileID: 2698741168836957698}
   - component: {fileID: 3993161779690748945}
   - component: {fileID: 6502097784452695551}
-  - component: {fileID: 2511332896932391176}
+  - component: {fileID: 4411094559781719318}
   m_Layer: 6
   m_Name: northeastwall (2)
   m_TagString: Untagged
@@ -1765,7 +1765,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2511332896932391176
+--- !u!65 &4411094559781719318
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1784,7 +1784,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 10, y: 8, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8082166320166969679
 GameObject:

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2901593958910436775}
   - component: {fileID: 5922059605079161239}
   - component: {fileID: 1721725872947935305}
-  - component: {fileID: 2185241744583476831}
+  - component: {fileID: 4538592566792339085}
   m_Layer: 0
   m_Name: loculi
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2185241744583476831
-MeshCollider:
+--- !u!65 &4538592566792339085
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,7 +102,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7253949741858452348, guid: f1f416bd8da4f284dad66b653caf3037, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 3.566124, y: 3.05754, z: 8}
+  m_Center: {x: -0.716938, y: 0, z: 0}

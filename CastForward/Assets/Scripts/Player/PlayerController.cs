@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerVCamController _playerVCamController;
     [SerializeField] private float _playerSpeed = 100f;
     [SerializeField] private float _strafeModifier = 0.6f;
+    [SerializeField] private float _reverseModifier = 0.5f;
     [SerializeField] private float _sprintModifier = 2f;
     [SerializeField] private float _crouchModifier = 0.6f;
     [SerializeField] private float _jumpPower = 200f;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     public RaycastHit slopeHit;
 
     public float PlayerSpeed { get { return _playerSpeed * Time.deltaTime; } }
+    public float ReverseModifier { get { return _reverseModifier; } }
     public float StrafeModifier { get { return _strafeModifier; } }
     public float CrouchModifier { get { return _crouchModifier; } }
     public float SprintSpeed { get {

@@ -17,6 +17,7 @@ public class PlayerCamera : MonoBehaviour
 
     private void Update()
     {
+        _turnSpeed = PlayerPrefs.GetFloat("Camera Sensitivity", _turnSpeed);
         if (GameManager.instance.IsPaused) return;
         transform.position = _playerTransform.position;
         transform.position = new Vector3(transform.position.x, transform.position.y + _yOffset + 1, transform.position.z);

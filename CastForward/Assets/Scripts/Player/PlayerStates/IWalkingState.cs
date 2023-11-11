@@ -31,8 +31,10 @@ namespace PlayerStates {
             {
                 Vector3 inputVector = new(_pc.MovementInput.x * _pc.PlayerSpeed * _pc.StrafeModifier,
                     0, _pc.MovementInput.y * _pc.PlayerSpeed);
+                if (inputVector.z < 0) inputVector.z *= _pc.ReverseModifier;
+                else inputVector *= _pc.SprintSpeed;
                 inputVector = _pc.CameraForward * inputVector;
-                _pc.rb.AddForce(inputVector * _pc.SprintSpeed, ForceMode.Force);
+                _pc.rb.AddForce(inputVector, ForceMode.Force);
             }
         }
     }

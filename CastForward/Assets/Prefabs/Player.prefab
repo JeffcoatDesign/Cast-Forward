@@ -282,6 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8791869015563189880}
+  - component: {fileID: 189999224139582782}
   m_Layer: 2
   m_Name: Left Spell Spawn Pos
   m_TagString: Untagged
@@ -304,6 +305,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1701741018282830154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &189999224139582782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3311573063356199532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7fdd9e968dfeb4c8414d946b381ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _raycastTransform: {fileID: 7544939699010860679}
+  _whatToHit:
+    serializedVersion: 2
+    m_Bits: 1521
 --- !u!1 &3874513664868501112
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +330,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7695276777056805431}
+  - component: {fileID: 4505003350421525496}
   m_Layer: 2
   m_Name: right Spell Spawn Pos
   m_TagString: Untagged
@@ -335,6 +353,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1701741018282830154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4505003350421525496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3874513664868501112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7fdd9e968dfeb4c8414d946b381ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _raycastTransform: {fileID: 7544939699010860679}
+  _whatToHit:
+    serializedVersion: 2
+    m_Bits: 1521
 --- !u!1 &5153036817181823377
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +596,7 @@ MonoBehaviour:
   _playerVCamController: {fileID: 2681463140299441452}
   _playerSpeed: 3500
   _strafeModifier: 0.7
+  _reverseModifier: 0.5
   _sprintModifier: 2
   _crouchModifier: 0.5
   _jumpPower: 2000

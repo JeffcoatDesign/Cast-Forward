@@ -1862,10 +1862,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 3
+  m_Radius: 0.58
+  m_Height: 3.42
   m_Direction: 1
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Center: {x: 0, y: 1.64, z: 0}
 --- !u!114 &4839774853705092203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1921,6 +1921,7 @@ MonoBehaviour:
   _maxHitpoints: 50
   hasDied: 0
   isAlive: 1
+  staggerThreshold: 0.3
 --- !u!54 &3756735504030194850
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2003,7 +2004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyAI: {fileID: 4839774853705092203}
   _enemyEntity: {fileID: 7749380103477771865}
-  _timeToResurrect: 10
+  _timeToResurrect: 20
   _resChances: 1
 --- !u!1001 &2021253501996261606
 PrefabInstance:

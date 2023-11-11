@@ -6,6 +6,7 @@ namespace SpellSystem
 {
     public class SpellImpact : MonoBehaviour
     {
+        public ISpellEffect spellEffect;
         public float damageMultiplier;
         public CollisionType collisionType;
         public bool spawnedByPlayer;
@@ -13,6 +14,7 @@ namespace SpellSystem
         private float _spellStart;
         private void Start()
         {
+            spellEffect = GetComponent<ISpellEffect>();
             _spellStart = Time.time;
         }
         private void OnTriggerEnter(Collider other)
