@@ -2,6 +2,14 @@
 https://jeffcoatdesign.github.io/Cast-Forward/
 # Changelog:
   
+v0.1.5  
++ Added Spell Effects
++ Added a Lightning Spell
++ Added a Burn Spell
++ Added Tutorial Text
++ Added Mouse Sensitivity Slider
++ Adjustested Spell Balancing  
+  
 v0.1.4  
 + Added Spell Exposions
 + Added Spell Sounds

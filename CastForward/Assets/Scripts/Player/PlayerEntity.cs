@@ -1,3 +1,4 @@
+using SpellSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,23 @@ public class PlayerEntity : Entity
         OnPlayerHPChange?.Invoke(CurrentHP, MaxHitpoints);
         if (CurrentHP <= 0) Die();
         else AudioManager.Instance.PlaySound(_hurtSounds[randomIndex], AudioType.SFX, transform);
+    }
+
+    public override void GetHit(float amount, bool canStagger)
+    {
+        base.GetHit(amount, canStagger);
+        OnPlayerHit?.Invoke();
+        OnPlayerHPChange?.Invoke(CurrentHP, MaxHitpoints);
+    }
+
+    public override void GetHit(float amount, bool canHitPlayer, ISpellEffect spellEffect)
+    {
+        if (canHitPlayer)
+        {
+            base.GetHit(amount, canHitPlayer, spellEffect);
+            OnPlayerHit?.Invoke();
+            OnPlayerHPChange?.Invoke(CurrentHP, MaxHitpoints);
+        }
     }
     public override void Die()
     {

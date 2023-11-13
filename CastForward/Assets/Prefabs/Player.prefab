@@ -299,7 +299,7 @@ Transform:
   m_GameObject: {fileID: 3311573063356199532}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.158, y: -0.13999999, z: 0.679}
+  m_LocalPosition: {x: 0.3, y: -0.13999999, z: 0.679}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -347,7 +347,7 @@ Transform:
   m_GameObject: {fileID: 3874513664868501112}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.158, y: -0.13999999, z: 0.679}
+  m_LocalPosition: {x: -0.3, y: -0.13999999, z: 0.679}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -801,7 +801,7 @@ MonoBehaviour:
   leftSpell: {fileID: 11400000, guid: 4bc38b52f9117b540bf7834a12f635f8, type: 2}
   rightSpell: {fileID: 11400000, guid: 604494daf4a1f7644988c22406df0afb, type: 2}
   _maxMana: 100
-  _staminaRegenRate: 1
+  _staminaRegenRate: 0.5
   _leftActionReference: {fileID: -7716467325908271637, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
   _rightActionReference: {fileID: 717136412852350348, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
   playerLeftTransform: {fileID: 8791869015563189880}

@@ -40,7 +40,7 @@ public class Entity : MonoBehaviour
         OnUpdateHP?.Invoke(_currentHitpoints, _maxHitpoints);
         _currentHitpoints = Mathf.Clamp(_currentHitpoints, 0, _maxHitpoints);
     }
-    public virtual void GetHit(float amount, SpellSystem.ISpellEffect spellEffect)
+    public virtual void GetHit(float amount, bool canHitPlayer, SpellSystem.ISpellEffect spellEffect)
     {
         _currentHitpoints -= amount;
         OnUpdateHP?.Invoke(_currentHitpoints, _maxHitpoints);

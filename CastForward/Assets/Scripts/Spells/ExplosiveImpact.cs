@@ -13,11 +13,11 @@ namespace SpellSystem
             bool canHitEnemies = (!spawnedByPlayer && (collisionType == CollisionType.Ally || collisionType == CollisionType.Neutral)) || (spawnedByPlayer && (collisionType == CollisionType.Enemy || collisionType == CollisionType.Neutral));
             if (canHitPlayer && other.CompareTag("Player"))
             {
-                other.GetComponent<Entity>().GetHit(damageMultiplier, spellEffect);
+                other.GetComponent<Entity>().GetHit(damageMultiplier, canHitPlayer, spellEffect);
             }
             else if (canHitEnemies && other.CompareTag("Enemy"))
             {
-                other.GetComponent<Entity>().GetHit(damageMultiplier, spellEffect);
+                other.GetComponent<Entity>().GetHit(damageMultiplier, canHitPlayer, spellEffect);
             }
         }
     }

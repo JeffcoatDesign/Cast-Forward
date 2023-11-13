@@ -9,6 +9,9 @@ public class SpellbookItem : ItemPickup
     public override void Initialize(Item newItem)
     {
         base.Initialize(newItem);
-        Image.sprite = newItem.inventorySprite;
+        if (newItem.inventorySprite != null)
+            Image.sprite = newItem.inventorySprite;
+        else
+            Image.enabled = false;
     }
 }

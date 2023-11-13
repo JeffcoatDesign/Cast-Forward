@@ -117,4 +117,10 @@ public class EnemyAI : MonoBehaviour
         Collider collider = GetComponent<Collider>();
         if (collider != null) collider.enabled = true;
     }
+
+    public void ModifySpeed(float multiplier)
+    {
+        _speed *= multiplier;
+        navMeshAgent.speed = _speed;
+    }
 }

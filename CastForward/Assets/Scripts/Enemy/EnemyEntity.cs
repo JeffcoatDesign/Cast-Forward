@@ -25,11 +25,11 @@ public class EnemyEntity : Entity
             OnStagger?.Invoke();
         base.GetHit(amount);
     }
-    public override void GetHit(float amount, ISpellEffect spellEffect)
+    public override void GetHit(float amount, bool canHitPlayer, ISpellEffect spellEffect)
     {
         if (((spellEffect != null) && spellEffect.CanStagger) && amount / CurrentHP > staggerThreshold)
             OnStagger?.Invoke();
-        base.GetHit(amount, spellEffect);
+        base.GetHit(amount, canHitPlayer, spellEffect);
     }
     public override void Die()
     {
