@@ -8,6 +8,7 @@ public class FadeFillUI : MonoBehaviour
     [SerializeField] private float _fadeTime = 0.7f;
     [SerializeField] private Image _fadeImage;
     [SerializeField] private bool _fadeOnStart;
+    [SerializeField] private bool _isFaded;
 
     private void Awake()
     {
@@ -28,26 +29,34 @@ public class FadeFillUI : MonoBehaviour
 
     private IEnumerator FadeIn()
     {
-        float fadeAmount = 0f;
-        float startTime = Time.time;
-        while (fadeAmount < 1)
+        if (!_isFaded)
         {
-            fadeAmount = Mathf.Lerp(0f, 1f, (Time.time - startTime) / _fadeTime);
-            _fadeImage.fillAmount = fadeAmount;
-            yield return new WaitForEndOfFrame();
+            _isFaded = true;
+            float fadeAmount = 0f;
+            float startTime = Time.time;
+            while (fadeAmount < 1)
+            {
+                fadeAmount = Mathf.Lerp(0f, 1f, (Time.time - startTime) / _fadeTime);
+                _fadeImage.fillAmount = fadeAmount;
+                yield return new WaitForEndOfFrame();
+            }
         }
         yield return null;
     }
 
     private IEnumerator FadeOut()
     {
-        float fadeAmount = 1f;
-        float startTime = Time.time;
-        while (fadeAmount > 0)
+        if (_isFaded)
         {
-            fadeAmount = Mathf.Lerp(1f, 0f, (Time.time - startTime) / _fadeTime);
-            _fadeImage.fillAmount = fadeAmount;
-            yield return new WaitForEndOfFrame();
+            _isFaded = false;
+            float fadeAmount = 1f;
+            float startTime = Time.time;
+            while (fadeAmount > 0)
+            {
+                fadeAmount = Mathf.Lerp(1f, 0f, (Time.time - startTime) / _fadeTime);
+                _fadeImage.fillAmount = fadeAmount;
+                yield return new WaitForEndOfFrame();
+            }
         }
         yield return null;
     }
