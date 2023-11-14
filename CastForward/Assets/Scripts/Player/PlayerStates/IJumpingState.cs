@@ -8,16 +8,17 @@ namespace PlayerStates {
         PlayerController _pc;
         float _stateStartTime;
         float _JumpBuffer = 0.2f;
-        float _WallRunBuffer = 0.2f;
         private float _wallCheckDistance = 1.2f;
         private float _minWallrunHeight = 1f;
         private bool WallLeft;
         private bool WallRight;
+        private bool _jumpHasReleased = false;
         public void Enter(PlayerController playerController)
         {
             _pc = playerController;
             _stateStartTime = Time.time;
             _pc.rb.AddForce(Vector3.up * _pc.JumpPower);
+            _pc.ToggleCrouch(false);
         }
 
         public void Exit()
@@ -35,9 +36,20 @@ namespace PlayerStates {
             inputVector = _pc.CameraForward * inputVector;
             _pc.rb.AddForce(inputVector, ForceMode.Force);
 
-            if (_pc.isGrounded && Time.time - _stateStartTime > _JumpBuffer)
-                _pc.SetState(new IWalkingState());
-            else if ((WallLeft || WallRight) && _pc.MovementInput.y > 0 && AboveGround() && Time.time - _stateStartTime > _WallRunBuffer)
+            if (!_pc.jumpPressed) _jumpHasReleased = true;
+
+            bool bufferedJump = Time.time - _stateStartTime > _JumpBuffer;
+
+            if (_pc.jumpPressed && bufferedJump && _jumpHasReleased)
+                _pc.SetState(new PlayerDoubleJumpState());
+            else if (_pc.isGrounded && bufferedJump)
+            {
+                if (_pc.IsCrouching)
+                    _pc.SetState(new PlayerSlideState());
+                else
+                    _pc.SetState(new IWalkingState());
+            }
+            else if ((WallLeft || WallRight) && _pc.MovementInput.y > 0 && AboveGround() && bufferedJump)
                 _pc.SetState(new IWallrunState());
         }
         private void CheckForWall()

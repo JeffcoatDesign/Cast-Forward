@@ -24,7 +24,12 @@ namespace PlayerStates {
             if (_pc.MovementInput.magnitude == 0)
                 _pc.SetState(new IStandingState());
             else if (_pc.IsCrouching)
+            {
+                if (_pc.SprintSpeed > 1f)
+                    _pc.SetState(new PlayerSlideState());
+                else
                 _pc.SetState(new ICrouchState());
+            }
             else if (_pc.jumpPressed)
                 _pc.SetState(new IJumpingState());
             else

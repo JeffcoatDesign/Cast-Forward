@@ -35,7 +35,7 @@ namespace PlayerStates {
             {
                 Vector3 wallNormal = WallRight ? RightWallHit.normal : leftWallHit.normal;
                 _pc.rb.AddForce(wallNormal * _dismountForce, ForceMode.VelocityChange);
-                _pc.SetState(new IJumpingState());
+                _pc.SetState(new PlayerDoubleJumpState());
             }
             else if ((WallLeft || WallRight) && _pc.MovementInput.y > 0 && AboveGround() && Time.time - _wallRunTimer < _pc.MaxWallRunTime)
             {
@@ -56,7 +56,7 @@ namespace PlayerStates {
             {
                 Vector3 wallNormal = WallRight ? RightWallHit.normal : leftWallHit.normal;
                 _pc.rb.AddForce(wallNormal * _dismountForce, ForceMode.VelocityChange);
-                _pc.SetState(new IFallState());
+                _pc.SetState(new PlayerFallState());
             }
         }
 

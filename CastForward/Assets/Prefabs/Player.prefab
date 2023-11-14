@@ -598,7 +598,7 @@ MonoBehaviour:
   _strafeModifier: 0.7
   _reverseModifier: 0.5
   _sprintModifier: 2
-  _crouchModifier: 0.5
+  _crouchModifier: 0.7
   _jumpPower: 2000
   _maxWallRunTime: 1
   _wallDutchAngle: 5

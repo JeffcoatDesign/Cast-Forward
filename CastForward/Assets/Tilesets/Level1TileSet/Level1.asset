@@ -15,9 +15,13 @@ MonoBehaviour:
   corridors:
   - prefab: {fileID: 6881695439628992709, guid: 08345e40fad4d59469112f3b48a0b950, type: 3}
     weight: 10
+  - prefab: {fileID: 6881695439628992709, guid: 09432514f0f852c4eb3ceb61d123dbe9, type: 3}
+    weight: 10
+  - prefab: {fileID: 6881695439628992709, guid: 7f9cfc70d82715e4da2fff2b11055a64, type: 3}
+    weight: 10
   - prefab: {fileID: 6881695439628992709, guid: 5e8ca0c1cdca4d548b723cb71da185c7, type: 3}
     weight: 10
-  - prefab: {fileID: 6881695439628992709, guid: 09432514f0f852c4eb3ceb61d123dbe9, type: 3}
+  - prefab: {fileID: 6881695439628992709, guid: c9aeb61666dd4254f8c43ed2f9cd3d49, type: 3}
     weight: 10
   hexRooms:
   - {fileID: 7024403611717928323, guid: 14e713166bf4d504184989d8536dc34e, type: 3}

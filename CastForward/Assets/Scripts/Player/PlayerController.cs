@@ -69,15 +69,15 @@ public class PlayerController : MonoBehaviour
             ToggleSprint(!_sprintActive);
         }
     }
-    public void OnCrouch(InputAction.CallbackContext ctx)
-    {
-        if (ctx.performed)
-            _crouchActive = !_crouchActive;
-    }
+    public void OnCrouch(InputAction.CallbackContext ctx) => _crouchActive = ctx.ReadValueAsButton();
     public void ToggleSprint(bool value)
     {
         _sprintActive = value;
         _playerVCamController.SetTargetFOV(_sprintActive ? 100 : 80);
+    }
+    public void ToggleCrouch(bool value)
+    {
+        _crouchActive = value;
     }
 
     public void SetState(IPlayerState playerState)

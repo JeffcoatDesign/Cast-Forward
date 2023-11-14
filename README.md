@@ -8,7 +8,12 @@ v0.1.5
 + Added a Burn Spell
 + Added Tutorial Text
 + Added Mouse Sensitivity Slider
-+ Adjustested Spell Balancing  
++ Adjusted Spell Balancing
++ Added Sliding
++ Added Double Jump
++ Bound Crouch to 'C'
++ Made Crouch Not a Toggle
++ Fire Trap  
   
 v0.1.4  
 + Added Spell Exposions

@@ -7,9 +7,11 @@ namespace SpellSystem
     public class SpraySpell : SpellProjectile
     {
         private ISpellEffect _spellEffect;
+        private ParticleSystem _particleSystem;
         private void Start()
         {
             _spellEffect = GetComponent<ISpellEffect>();
+            _particleSystem = GetComponent<ParticleSystem>();
         }
         public override void OnHit(Collider other)
         {
