@@ -272,7 +272,7 @@ MonoBehaviour:
   targetFov: 90
   fovChangeSpeed: 50
   shakeIntesity: 5
-  shakeTime: 0.25
+  shakeTime: 0.22
 --- !u!1 &3311573063356199532
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,12 +594,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2784685355755732924}
   _playerVCamController: {fileID: 2681463140299441452}
-  _playerSpeed: 3500
-  _strafeModifier: 0.7
-  _reverseModifier: 0.5
+  _playerSpeed: 5000
+  _strafeModifier: 0.9
+  _reverseModifier: 0.8
   _sprintModifier: 2
   _crouchModifier: 0.7
-  _jumpPower: 2000
+  _jumpPower: 3500
   _maxWallRunTime: 1
   _wallDutchAngle: 5
   _maxSlopeAngle: 10
@@ -798,14 +798,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d9026a5ee04dc4fa667364278511ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftSpell: {fileID: 11400000, guid: 4bc38b52f9117b540bf7834a12f635f8, type: 2}
-  rightSpell: {fileID: 11400000, guid: 604494daf4a1f7644988c22406df0afb, type: 2}
+  leftSpell: {fileID: 0}
+  rightSpell: {fileID: 0}
   _maxMana: 100
   _staminaRegenRate: 0.5
   _leftActionReference: {fileID: -7716467325908271637, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
   _rightActionReference: {fileID: 717136412852350348, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
   playerLeftTransform: {fileID: 8791869015563189880}
   playerRightTransform: {fileID: 7695276777056805431}
+  _rb: {fileID: 2784685355755732924}
 --- !u!114 &8869595033814103746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,5 +837,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf40c77c2579504b87076fdedc501a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pollTime: 5
+  pollTime: 2
   playerController: {fileID: 3022973026543301705}

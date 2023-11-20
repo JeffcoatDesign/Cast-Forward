@@ -23,5 +23,6 @@ MonoBehaviour:
   _damageMultiplier: 1
   castDelay: 0.3
   _isAnchored: 0
+  _inheritVelocity: 1
   _collisionType: 0
   manaCost: 30

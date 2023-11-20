@@ -11,11 +11,13 @@ public class EnemyStateMachine : MonoBehaviour
     public EnemyEntity enemyEntity;
     private Vector3 lastPosition;
     public EnemyMeleeHitbox weaponHitbox;
+    private EnemyAI _enemyAI;
     public UnityEvent OnResurrected;
     float _timeSinceWalkSound = 0;
     private void Start()
     {
         OnResurrected ??= new ();
+        _enemyAI = GetComponent<EnemyAI> ();
     }
     public void OnEnable()
     {
@@ -32,17 +34,17 @@ public class EnemyStateMachine : MonoBehaviour
 
     private void Die ()
     {
-        _animator.SetTrigger("Fall1");
+        StartCoroutine(StartStaticAnim("Fall1"));
         weaponHitbox.isAttacking = false;
     }
 
     public void Attack ()
     {
-        _animator.SetTrigger("Attack1h1");
+        StartCoroutine(StartStaticAnim("Attack1h1"));
     }
     public void GetHit ()
     {
-        _animator.SetTrigger("Hit1");
+        StartCoroutine(StartStaticAnim("Hit1"));
         weaponHitbox.isAttacking = false;
     }
 
@@ -69,13 +71,25 @@ public class EnemyStateMachine : MonoBehaviour
         weaponHitbox.isAttacking = _animator.GetCurrentAnimatorStateInfo(0).IsName("Attack1h1");
     }
 
+    IEnumerator StartStaticAnim(string name)
+    {
+        _enemyAI.inStaticAnimation = true;
+        _animator.SetTrigger(name);
+        yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+        _enemyAI.inStaticAnimation = false;
+
+        yield return null;
+    }
+
     IEnumerator WaitForResurrected ()
     {
         _animator.SetTrigger("Resurrect");
+        _enemyAI.inStaticAnimation = true;
         yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
         _animator.SetTrigger("Up");
         yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
         OnResurrected?.Invoke();
+        _enemyAI.inStaticAnimation = false;
         yield return null;
     }
 }

@@ -12,16 +12,18 @@ public class EnemySpells : MonoBehaviour
     [SerializeField] private Transform spellTransform;
     [SerializeField] private float _maxMana = 100f;
     [SerializeField] private float _manaRegenSpeed = 0.1f;
+    private Rigidbody _rb;
     private float _currentMana;
     private void Awake()
     {
         enemyAI = GetComponent<EnemyAI>();
+        _rb = GetComponent<Rigidbody>();
         _currentMana = _maxMana;   
         SelectSpell();
     }
     public void OnSpellAttack()
     {
-        selectedSpell.SummonSpell(spellTransform, false);
+        selectedSpell.SummonSpell(spellTransform, _rb.velocity, false);
         _currentMana -= selectedSpell.manaCost;
         SelectSpell();
     }

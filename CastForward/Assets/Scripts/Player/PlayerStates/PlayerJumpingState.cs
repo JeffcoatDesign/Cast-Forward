@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace PlayerStates {
-    public class IJumpingState : IPlayerState
+    public class PlayerJumpingState : IPlayerState
     {
         PlayerController _pc;
         float _stateStartTime;
@@ -32,7 +32,7 @@ namespace PlayerStates {
             Vector3 inputVector = new(_pc.MovementInput.x * _pc.PlayerSpeed * _pc.StrafeModifier,
                        0, _pc.MovementInput.y * _pc.PlayerSpeed);
             if (inputVector.z < 0) inputVector.z *= _pc.ReverseModifier;
-            else inputVector *= _pc.SprintSpeed;
+            inputVector *= _pc.SprintSpeed;
             inputVector = _pc.CameraForward * inputVector;
             _pc.rb.AddForce(inputVector, ForceMode.Force);
 
@@ -47,10 +47,10 @@ namespace PlayerStates {
                 if (_pc.IsCrouching)
                     _pc.SetState(new PlayerSlideState());
                 else
-                    _pc.SetState(new IWalkingState());
+                    _pc.SetState(new PlayerWalkingState());
             }
             else if ((WallLeft || WallRight) && _pc.MovementInput.y > 0 && AboveGround() && bufferedJump)
-                _pc.SetState(new IWallrunState());
+                _pc.SetState(new PlayerWallrunState());
         }
         private void CheckForWall()
         {

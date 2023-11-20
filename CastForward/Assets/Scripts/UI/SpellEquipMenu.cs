@@ -30,14 +30,32 @@ public class SpellEquipMenu : MonoBehaviour
     }
     void OnEquipSpell (Spell spell)
     {
+        bool foundEmptySlot = false;
         _playerSpells = FindFirstObjectByType<PlayerSpells>();
+        _leftSpellImage.enabled = (_playerSpells.leftSpell != null);
+        _rightSpellImage.enabled = (_playerSpells.rightSpell != null);
         _spellToEquipImage.sprite = spell.inventorySprite;
-        _leftSpellImage.sprite = _playerSpells.leftSpell.inventorySprite;
-        _rightSpellImage.sprite = _playerSpells.rightSpell.inventorySprite;
-        currentSpell = spell;
-        _lookingForSpells = true;
-        _pickupMenu.SetActive(true);
-        GameManager.instance.Pause(true);
+        if (_playerSpells.leftSpell != null)
+            _leftSpellImage.sprite = _playerSpells.leftSpell.inventorySprite;
+        else
+        {
+            foundEmptySlot = true;
+            _playerSpells.SetSpell(spell, 0);
+        }
+        if (_playerSpells.rightSpell != null)
+            _rightSpellImage.sprite = _playerSpells.rightSpell.inventorySprite;
+        else if (!foundEmptySlot)
+        {
+            foundEmptySlot = true;
+            _playerSpells.SetSpell(spell, 1);
+        }
+        if (!foundEmptySlot)
+        {
+            currentSpell = spell;
+            _lookingForSpells = true;
+            _pickupMenu.SetActive(true);
+            GameManager.instance.Pause(true);
+        }
     }
     private void Update()
     {

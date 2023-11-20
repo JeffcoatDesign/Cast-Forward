@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PlayerStates
 {
-    public class ICrouchState : IPlayerState
+    public class PlayerCrouchState : IPlayerState
     {
         private PlayerController _pc;
         private float _defYScale;
@@ -34,11 +34,11 @@ namespace PlayerStates
                 _pc.rb.AddForce(inputVector, ForceMode.Force);
             }
             else if (!_pc.IsCrouching && _pc.MovementInput.magnitude == 0)
-                _pc.SetState(new IStandingState());
+                _pc.SetState(new PlayerStandingState());
             else if (!_pc.IsCrouching)
-                _pc.SetState(new IWalkingState());
+                _pc.SetState(new PlayerWalkingState());
             else if (_pc.jumpPressed)
-                _pc.SetState(new IJumpingState());
+                _pc.SetState(new PlayerJumpingState());
             else
             {
                 Vector3 inputVector = new(_pc.MovementInput.x * _pc.PlayerSpeed * _pc.StrafeModifier * _pc.CrouchModifier,

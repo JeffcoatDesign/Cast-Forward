@@ -16,7 +16,7 @@ namespace SpellSystem
         {
             if (Time.time - _lastCastTime > (_spellToEmit.castDelay + _extraSpellDelay))
             {
-                _spellToEmit.SummonSpell(_emitterTransform, false);
+                _spellToEmit.SummonSpell(_emitterTransform, Vector3.zero, false);
                 _lastCastTime = Time.time;
             }
         }

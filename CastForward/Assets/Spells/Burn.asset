@@ -16,12 +16,13 @@ MonoBehaviour:
   itemPrefab: {fileID: 5734729433855749561, guid: c83bfb52ed2be2c4188fa334600c8916, type: 3}
   mesh: {fileID: 381947130776709163, guid: 540dab26906ae154dbaf81f7f7addacb, type: 3}
   material: {fileID: 2100000, guid: 6e9b30f96f82d324fad0975226fd4928, type: 2}
-  inventorySprite: {fileID: 21300000, guid: 006d613c9146ae648a5c976b61793296, type: 3}
+  inventorySprite: {fileID: 21300000, guid: 385241fb5a71a8b468b0373b6c95b6a1, type: 3}
   _projectilePrefab: {fileID: 4757913559394007192, guid: ca73512d100e77d4c90e6d8f90728818, type: 3}
   _impactPrefab: {fileID: 0}
   _projectileSpeed: 10
   _damageMultiplier: 7
   castDelay: 0.5
   _isAnchored: 1
+  _inheritVelocity: 0
   _collisionType: 0
   manaCost: 15

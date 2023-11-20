@@ -4,9 +4,8 @@ using Cinemachine;
 using UnityEngine;
 
 namespace PlayerStates { 
-    public class IWallrunState : IPlayerState
+    public class PlayerWallrunState : IPlayerState
     {
-//TODO: wallruntimer
         PlayerController _pc;
         private float _wallRunTimer = 0f;
         private float _wallCheckDistance = 1.2f;
@@ -48,9 +47,6 @@ namespace PlayerStates {
                     wallForward = -wallForward;
 
                 _pc.rb.AddForce(wallForward * _pc.PlayerSpeed * _pc.SprintSpeed, ForceMode.Force);
-
-                /*if (!(WallLeft && _pc.MovementInput.y > 0) && !(WallRight && _pc.MovementInput.y < 0))
-                    _pc.rb.AddForce(-wallNormal * 100, ForceMode.Force);*/
             }
             else
             {

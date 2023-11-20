@@ -1008,6 +1008,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pillar (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4415808711538854150, guid: 4dc8507b2603d3a4fa4fd1fb7816547c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8010692390663230801, guid: 4dc8507b2603d3a4fa4fd1fb7816547c, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.7826568

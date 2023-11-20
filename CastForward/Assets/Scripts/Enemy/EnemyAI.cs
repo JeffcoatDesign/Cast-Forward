@@ -16,6 +16,7 @@ public class EnemyAI : MonoBehaviour
     private bool _walkPointSet;
     private bool _processing = true;
     public float walkPointRange;
+    public bool inStaticAnimation = false;
 
     [Header("Attacking")]
     [SerializeField] private float _timeBetweenAttacks;
@@ -55,8 +56,8 @@ public class EnemyAI : MonoBehaviour
         playerInSightRange = sight.Any(c => c.CompareTag("Player"));
         playerInAttackRange = attack.Any(c => c.CompareTag("Player"));
 
-        if (!playerInSightRange && !playerInAttackRange) Patrolling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+        if (!playerInSightRange && !playerInAttackRange && !inStaticAnimation) Patrolling();
+        if (playerInSightRange && !playerInAttackRange && !inStaticAnimation) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
     }
     private void Patrolling()

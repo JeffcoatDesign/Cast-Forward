@@ -6,15 +6,23 @@ using UnityEngine.AI;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private bool spawnOnLevelGenerated = true;
     private void OnEnable()
     {
-        LevelNavmesh.OnNavMeshBuilt += SpawnEnemy;
+        if (spawnOnLevelGenerated)
+            LevelNavmesh.OnNavMeshBuilt += SpawnEnemy;
     }
     private void OnDisable()
     {
-        LevelNavmesh.OnNavMeshBuilt -= SpawnEnemy;
+        if (spawnOnLevelGenerated)
+            LevelNavmesh.OnNavMeshBuilt -= SpawnEnemy;
     }
-    void SpawnEnemy ()
+    public void SpawnEnemy ()
+    {
+        GetSpawnedEnemy();
+    }
+
+    public EnemyAI GetSpawnedEnemy()
     {
         NavMeshHit closestHit;
         if (NavMesh.SamplePosition(transform.position, out closestHit, 10, 1))
@@ -24,6 +32,8 @@ public class EnemySpawner : MonoBehaviour
             EnemyAI enemyAI = enemy.GetComponent<EnemyAI>();
             enemyAI.navMeshAgent = enemy.AddComponent<NavMeshAgent>();
             enemyAI.Initialize();
+            return enemyAI;
         }
+        return null;
     }
 }

@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
             Quaternion flattened = Quaternion.LookRotation(-Vector3.up, _playerVCamController.transform.forward) * Quaternion.Euler(-90f, 0, 0);
             return flattened; } }
 
-    IPlayerState _currentState = new IStandingState();
+    IPlayerState _currentState = new PlayerStandingState();
     
     private void Awake()
     {

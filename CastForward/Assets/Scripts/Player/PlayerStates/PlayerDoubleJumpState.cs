@@ -41,10 +41,10 @@ namespace PlayerStates
                 if (_pc.IsCrouching)
                     _pc.SetState(new PlayerSlideState());
                 else
-                    _pc.SetState(new IWalkingState()); 
+                    _pc.SetState(new PlayerWalkingState()); 
             }
             else if ((WallLeft || WallRight) && _pc.MovementInput.y > 0 && AboveGround() && Time.time - _stateStartTime > _WallRunBuffer)
-                _pc.SetState(new IWallrunState());
+                _pc.SetState(new PlayerWallrunState());
         }
         private void CheckForWall()
         {

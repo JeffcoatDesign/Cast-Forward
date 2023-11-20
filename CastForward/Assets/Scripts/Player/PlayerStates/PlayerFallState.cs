@@ -24,7 +24,7 @@ namespace PlayerStates {
                 if (_pc.IsCrouching)
                     _pc.SetState(new PlayerSlideState());
                 else
-                    _pc.SetState(new IWalkingState());
+                    _pc.SetState(new PlayerWalkingState());
             }
             else
             {

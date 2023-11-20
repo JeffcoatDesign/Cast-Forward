@@ -16,7 +16,6 @@ namespace PlayerStates {
             _pc.transform.localScale = new Vector3(_pc.transform.localScale.x, 0.5f, _pc.transform.localScale.z);
             _pc.rb.AddForce(Vector3.down * 5, ForceMode.Impulse);
             _pc.StartCoroutine(Slide());
-            _pc.ToggleSprint(false);
         }
 
         public void Exit()
@@ -33,18 +32,18 @@ namespace PlayerStates {
                 _pc.rb.AddForce(_pc.transform.forward * 5, ForceMode.Impulse);
             else if (!_pc.IsCrouching && _pc.MovementInput.magnitude == 0 && hasNoVelocity) {
                 _pc.StopAllCoroutines();
-                _pc.SetState(new IStandingState());
+                _pc.SetState(new PlayerStandingState());
             }
             else if (!_pc.IsCrouching && hasNoVelocity) {
                 _pc.StopAllCoroutines();
-                _pc.SetState(new IWalkingState());
+                _pc.SetState(new PlayerWalkingState());
             }
             else if (_pc.jumpPressed) {
                 _pc.StopAllCoroutines();
-                _pc.SetState(new IJumpingState());
+                _pc.SetState(new PlayerJumpingState());
             }
             else if (hasNoVelocity)
-                _pc.SetState(new ICrouchState());
+                _pc.SetState(new PlayerCrouchState());
         }
 
         private IEnumerator Slide ()
@@ -52,7 +51,7 @@ namespace PlayerStates {
             float startTime = Time.time;
             while (Time.time - startTime < _slideTime)
             {
-                float modifier = Mathf.Lerp(5, 0, (Time.time - startTime) / _slideTime);
+                float modifier = Mathf.Lerp(5, 1, (Time.time - startTime) / _slideTime);
                 _pc.rb.AddForce(_pc.transform.forward * modifier, ForceMode.Impulse);
                 yield return new WaitForFixedUpdate();
             }

@@ -17,6 +17,7 @@ public class PlayerSpells : MonoBehaviour
     private float _currentMana;
     [SerializeField] private Transform playerLeftTransform;
     [SerializeField] private Transform playerRightTransform;
+    [SerializeField] private Rigidbody _rb;
     private bool _canCastLeft = true;
     private bool _canCastRight = true;
     private void Start()
@@ -40,7 +41,7 @@ public class PlayerSpells : MonoBehaviour
             _canCastLeft = false;
             Invoke(nameof(DelayLeftSpell), leftSpell.castDelay);
             _currentMana -= leftSpell.manaCost;
-            leftSpell.SummonSpell(playerLeftTransform, true);
+            leftSpell.SummonSpell(playerLeftTransform, _rb.velocity, true);
             OnUpdatePlayerMana?.Invoke(_currentMana, _maxMana);
         }
     }
@@ -53,7 +54,7 @@ public class PlayerSpells : MonoBehaviour
             _canCastRight = false;
             Invoke(nameof(DelayRightSpell), rightSpell.castDelay);
             _currentMana -= rightSpell.manaCost;
-            rightSpell.SummonSpell(playerRightTransform, true);
+            rightSpell.SummonSpell(playerRightTransform, _rb.velocity, true);
             OnUpdatePlayerMana?.Invoke(_currentMana, _maxMana);
         }
     }

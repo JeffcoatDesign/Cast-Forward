@@ -15,12 +15,13 @@ namespace SpellSystem
         [SerializeField] private float _damageMultiplier;
         public float castDelay = 0.1f;
         [SerializeField] private bool _isAnchored = false;
+        [SerializeField] private bool _inheritVelocity = false;
         [SerializeField] private CollisionType _collisionType;
 
         public float manaCost;
         public float ProjectileSpeed { get { return _projectileSpeed; } }
 
-        public void SummonSpell(Transform castPoint, bool spawnedByPlayer)
+        public void SummonSpell(Transform castPoint, Vector3 velocity, bool spawnedByPlayer)
         {
             SpellProjectile projectile = Instantiate(_projectilePrefab, castPoint.position, castPoint.rotation).GetComponent<SpellProjectile>();
             if (_isAnchored) projectile.transform.parent = castPoint;
@@ -31,6 +32,16 @@ namespace SpellSystem
             projectile.spawnedByPlayer = spawnedByPlayer;
             if (_impactPrefab != null)
                 projectile.impactPrefab = _impactPrefab;
+
+            if (_inheritVelocity)
+            {
+                Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
+                if (projectileRB != null)
+                {
+                    projectileRB.velocity = velocity;
+//TODO: Set velocity in right direction
+                }
+            }
         }
         public override void Interact()
         {
