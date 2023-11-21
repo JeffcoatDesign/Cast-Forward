@@ -34,7 +34,7 @@ public class PlayerSpells : MonoBehaviour
     }
     void OnLeftSpell ()
     {
-        if (GameManager.instance.IsPaused) return;
+        if (GameManager.instance.IsPaused || leftSpell == null) return;
         bool canAffordSpell = _currentMana >= leftSpell.manaCost;
         if (_canCastLeft && canAffordSpell && leftSpell != null)
         {
@@ -47,7 +47,7 @@ public class PlayerSpells : MonoBehaviour
     }
     void OnRightSpell()
     {
-        if (GameManager.instance.IsPaused) return;
+        if (GameManager.instance.IsPaused || rightSpell == null) return;
         bool canAffordSpell = _currentMana >= rightSpell.manaCost;
         if (_canCastRight && canAffordSpell && rightSpell != null)
         {

@@ -1818,7 +1818,6 @@ GameObject:
   - component: {fileID: 7749380103477771865}
   - component: {fileID: 3756735504030194850}
   - component: {fileID: 333381435124399703}
-  - component: {fileID: 3359738344086034899}
   m_Layer: 8
   m_Name: Skeleton Warrior
   m_TagString: Enemy
@@ -1884,6 +1883,7 @@ MonoBehaviour:
     m_Bits: 128
   _speed: 15
   walkPointRange: 5
+  inStaticAnimation: 0
   _timeBetweenAttacks: 1
   isAttacking: 0
   sightRange: 20
@@ -1990,22 +1990,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3359738344086034899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6583740149842715992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1a578c65f6a04548beba2a7bbc15b03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyAI: {fileID: 4839774853705092203}
-  _enemyEntity: {fileID: 7749380103477771865}
-  _timeToResurrect: 20
-  _resChances: 1
 --- !u!1001 &2021253501996261606
 PrefabInstance:
   m_ObjectHideFlags: 0

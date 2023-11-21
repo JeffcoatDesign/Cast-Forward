@@ -210,7 +210,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &2482609373805231152
+--- !u!1 &3157799278157983458
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,10 +218,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4863809680183779756}
-  - component: {fileID: 8107336262083280892}
-  - component: {fileID: 438511025678978715}
-  - component: {fileID: 3711201965656849685}
+  - component: {fileID: 8813915858035797781}
+  - component: {fileID: 7711652529803151586}
+  - component: {fileID: 6235078104271888386}
+  - component: {fileID: 9110150211893881262}
   m_Layer: 11
   m_Name: gateShutTrigger
   m_TagString: Untagged
@@ -229,57 +229,58 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4863809680183779756
+--- !u!4 &8813915858035797781
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2482609373805231152}
+  m_GameObject: {fileID: 3157799278157983458}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7088672, z: -0, w: 0.70534205}
-  m_LocalPosition: {x: 5.63, y: 8.8, z: -0.03}
-  m_LocalScale: {x: 22.708683, y: 20, z: 30}
+  m_LocalRotation: {x: -0, y: 0.2588191, z: -0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 20.6, z: 0}
+  m_LocalScale: {x: 37, y: 136.19002, z: 37}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 456166771055196623}
-  m_LocalEulerAnglesHint: {x: 0, y: 90.286, z: 0}
---- !u!33 &8107336262083280892
+  m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+--- !u!33 &7711652529803151586
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2482609373805231152}
+  m_GameObject: {fileID: 3157799278157983458}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &438511025678978715
-BoxCollider:
+--- !u!64 &6235078104271888386
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2482609373805231152}
+  m_GameObject: {fileID: 3157799278157983458}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3711201965656849685
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8700776165644969295, guid: 7ad3bb7cc0eabfc4abc49fd7f77ebe47, type: 3}
+--- !u!114 &9110150211893881262
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2482609373805231152}
+  m_GameObject: {fileID: 3157799278157983458}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c967bf1313ec1f4cbb0ef146b8768bd, type: 3}
@@ -290,34 +291,10 @@ MonoBehaviour:
   OnTriggered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 240269649937077857}
-        m_TargetAssemblyTypeName: GateController, Assembly-CSharp
-        m_MethodName: TriggerGate
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 3536730491654723542}
         m_TargetAssemblyTypeName: EnemyTrapTrigger, Assembly-CSharp
         m_MethodName: SpawnEnemies
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7306868128443468331}
-        m_TargetAssemblyTypeName: GateController, Assembly-CSharp
-        m_MethodName: TriggerGate
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -548,6 +525,33 @@ MonoBehaviour:
   - {fileID: 2758754836906057053}
   - {fileID: 7400519113807658099}
   - {fileID: 7365195879446022629}
+  OnSpawnEnemies:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 240269649937077857}
+        m_TargetAssemblyTypeName: GateController, Assembly-CSharp
+        m_MethodName: TriggerGate
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7306868128443468331}
+        m_TargetAssemblyTypeName: GateController, Assembly-CSharp
+        m_MethodName: TriggerGate
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnAllEnemiesDied:
     m_PersistentCalls:
       m_Calls:
@@ -678,7 +682,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8700776165644969295, guid: 7ad3bb7cc0eabfc4abc49fd7f77ebe47, type: 3}
 --- !u!1 &6736182219572734615
@@ -944,7 +948,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4863809680183779756}
+  - {fileID: 8813915858035797781}
   - {fileID: 2534545821252996891}
   - {fileID: 3290839195245465668}
   - {fileID: 5447603957087620110}

@@ -7,24 +7,30 @@ using UnityEngine.Events;
 public class EnemyTrapTrigger : MonoBehaviour
 {
     [SerializeField] private List<EnemySpawner> spawns;
+    public UnityEvent OnSpawnEnemies;
     public UnityEvent OnAllEnemiesDied;
     private bool hasSpawnedEnemies = false;
     private int enemyCount;
     private void Start()
     {
+        OnSpawnEnemies ??= new();
         OnAllEnemiesDied ??= new();
     }
     public void SpawnEnemies ()
     {
         if (hasSpawnedEnemies) { return; }
+        OnSpawnEnemies.Invoke();
         hasSpawnedEnemies = true;
         foreach(var spawner in spawns)
         {
             if (spawner != null)
             {
                 EnemyAI enemy = spawner.GetSpawnedEnemy();
-                enemy.GetComponent<EnemyEntity>().OnDeath += RemoveEnemy;
-                enemyCount++;
+                if (enemy != null)
+                {
+                    enemy.GetComponent<EnemyEntity>().OnDeath += RemoveEnemy;
+                    enemyCount++;
+                }
             }
         }
     }

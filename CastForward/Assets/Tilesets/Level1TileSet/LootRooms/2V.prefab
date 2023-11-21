@@ -48,6 +48,33 @@ MonoBehaviour:
   - {fileID: 2124892934306816110}
   - {fileID: 3694365337822681250}
   - {fileID: 5228092522157842476}
+  OnSpawnEnemies:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 258287475184491234}
+        m_TargetAssemblyTypeName: GateController, Assembly-CSharp
+        m_MethodName: TriggerGate
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7680678016824212803}
+        m_TargetAssemblyTypeName: GateController, Assembly-CSharp
+        m_MethodName: TriggerGate
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnAllEnemiesDied:
     m_PersistentCalls:
       m_Calls:
@@ -85,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3899440787417911263}
   - component: {fileID: 8878798581398392206}
-  - component: {fileID: 5655676456134380002}
+  - component: {fileID: 6175487967851556431}
   - component: {fileID: 5890280463926972251}
   m_Layer: 11
   m_Name: gateShutTrigger
@@ -102,13 +129,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2618394639902097420}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.49060777, z: -0, w: 0.87138057}
-  m_LocalPosition: {x: -2.09, y: 8.8, z: -1.27}
-  m_LocalScale: {x: 40, y: 20, z: 30}
+  m_LocalRotation: {x: 0, y: 0.2588191, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 20.6, z: 0}
+  m_LocalScale: {x: 37, y: 136.19, z: 37}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 456166771055196623}
-  m_LocalEulerAnglesHint: {x: 0, y: 58.761, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
 --- !u!33 &8878798581398392206
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -117,8 +144,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2618394639902097420}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &5655676456134380002
-BoxCollider:
+--- !u!64 &6175487967851556431
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -130,14 +157,15 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8700776165644969295, guid: 7ad3bb7cc0eabfc4abc49fd7f77ebe47, type: 3}
 --- !u!114 &5890280463926972251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,34 +183,10 @@ MonoBehaviour:
   OnTriggered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 258287475184491234}
-        m_TargetAssemblyTypeName: GateController, Assembly-CSharp
-        m_MethodName: TriggerGate
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 3146311711572288441}
         m_TargetAssemblyTypeName: EnemyTrapTrigger, Assembly-CSharp
         m_MethodName: SpawnEnemies
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7680678016824212803}
-        m_TargetAssemblyTypeName: GateController, Assembly-CSharp
-        m_MethodName: TriggerGate
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1078,7 +1082,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8700776165644969295, guid: 7ad3bb7cc0eabfc4abc49fd7f77ebe47, type: 3}
 --- !u!1001 &731461267896377208
