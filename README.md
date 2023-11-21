@@ -2,6 +2,15 @@
 https://jeffcoatdesign.github.io/Cast-Forward/
 # Changelog:
   
+v0.1.6
++ Added Gate Traps to Force Cowards into Combat
++ Added Boost Spell to Let Players Go Fast
++ Tweaked Player Speed to Make Movement More Enjoyable
++ Tweaked Gravity to Make it Feel More Snappy
++ Removed Reviving Enemies to Keep Them from Catching Players Off Guard
++ Sliding No Longer Cancels Sprint to Improve Game Feel
++ Enemies Stop for Certain Animations to Improve Combat  
+
 v0.1.5  
 + Added Spell Effects
 + Added a Lightning Spell
