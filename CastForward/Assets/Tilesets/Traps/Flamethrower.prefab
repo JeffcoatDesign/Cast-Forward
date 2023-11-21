@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 6276871575308914420}
   - component: {fileID: 5351370260359847014}
   - component: {fileID: 9038835786618415677}
+  - component: {fileID: 41762673688858704}
   m_Layer: 0
   m_Name: Flamethrower
   m_TagString: Untagged
@@ -259,3 +260,19 @@ MonoBehaviour:
   _spellToEmit: {fileID: 11400000, guid: d8c602d0b07d8224189a521b57b5c36c, type: 2}
   _emitterTransform: {fileID: 1450580354209429630}
   _extraSpellDelay: 0
+--- !u!208 &41762673688858704
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570750647531729756}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.47, y: 2.355, z: 2.955}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 2.4}
+  m_TimeToStationary: 0.5

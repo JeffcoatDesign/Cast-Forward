@@ -22,6 +22,7 @@ public class DeathMenuUI : MonoBehaviour
     }
     public void GoToMenu ()
     {
+        if (GameManager.instance != null) GameManager.instance.transform.parent = transform;
         SceneManager.LoadScene("Menu");
     }
 }
