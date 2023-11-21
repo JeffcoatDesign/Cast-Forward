@@ -626,17 +626,6 @@
                 },
                 {
                     "name": "",
-                    "id": "fcfab98c-4828-4815-b9fd-13e3cd01298a",
-                    "path": "<Keyboard>/ctrl",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Crouch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "d20e4b80-edec-481b-9cab-4fe483817138",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
