@@ -5,6 +5,8 @@ https://jeffcoatdesign.github.io/Cast-Forward/
 v0.1.6
 + Added Gate Traps to Force Cowards into Combat
 + Added Boost Spell to Let Players Go Fast
++ Added Indicator for Wall-Running Walls
++ Added Environment to Main Menu and Credits
 + Tweaked Player Speed to Make Movement More Enjoyable
 + Tweaked Gravity to Make it Feel More Snappy
 + Removed Reviving Enemies to Keep Them from Catching Players Off Guard
