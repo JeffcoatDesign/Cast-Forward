@@ -21,8 +21,10 @@ MonoBehaviour:
   _impactPrefab: {fileID: 2992758300039189206, guid: 1bb13cb9d77e12240a80c4aa2a2e2442, type: 3}
   _projectileSpeed: 10
   _damageMultiplier: 1
+  coolDown: 1
   castDelay: 0.3
+  charges: 4
+  canBeHeld: 0
   _isAnchored: 0
   _inheritVelocity: 1
   _collisionType: 0
-  manaCost: 30

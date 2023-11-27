@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     }
     private void Awake()
     {
-        _defaultTimeScale = Time.timeScale;
+        _defaultTimeScale = 1f;
         if (instance == null)
         {
             DontDestroyOnLoad(gameObject);

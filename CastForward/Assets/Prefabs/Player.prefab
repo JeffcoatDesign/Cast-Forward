@@ -320,7 +320,7 @@ MonoBehaviour:
   _raycastTransform: {fileID: 7544939699010860679}
   _whatToHit:
     serializedVersion: 2
-    m_Bits: 1521
+    m_Bits: 1489
 --- !u!1 &3874513664868501112
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +368,7 @@ MonoBehaviour:
   _raycastTransform: {fileID: 7544939699010860679}
   _whatToHit:
     serializedVersion: 2
-    m_Bits: 1521
+    m_Bits: 1489
 --- !u!1 &5153036817181823377
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ public class EnemyStateMachine : MonoBehaviour
     {
         OnResurrected ??= new ();
         _enemyAI = GetComponent<EnemyAI> ();
+        StartCoroutine(StartStaticAnim("Spawn"));
     }
     public void OnEnable()
     {

@@ -24,16 +24,16 @@ public class EnemySpells : MonoBehaviour
     public void OnSpellAttack()
     {
         selectedSpell.SummonSpell(spellTransform, _rb.velocity, false);
-        _currentMana -= selectedSpell.manaCost;
+        //_currentMana -= selectedSpell.manaCost;
         SelectSpell();
     }
     void SelectSpell()
     {
         if (enemySpells.Length < 1) return;
-        Spell[] affordableSpells = enemySpells.Where(sp => sp.manaCost <= _currentMana).ToArray();
-        if (affordableSpells.Length < 1) return;
-        int randomIndex = Random.Range(0, affordableSpells.Length);
-        selectedSpell = affordableSpells[randomIndex];
+        //Spell[] affordableSpells = enemySpells.Where(sp => sp.manaCost <= _currentMana).ToArray();
+        //if (affordableSpells.Length < 1) return;
+        //int randomIndex = Random.Range(0, affordableSpells.Length);
+        //selectedSpell = affordableSpells[randomIndex];
         enemyAI.projectileForce = selectedSpell.ProjectileSpeed;
     }
     private void FixedUpdate()

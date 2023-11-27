@@ -6,62 +6,101 @@ using SpellSystem;
 public class PlayerSpells : MonoBehaviour
 {
     public delegate void UpdatePlayerSpell(Spell leftSpell, Spell rightSpell);
-    public delegate void UpdatePlayerMana(float playerMana, float maxMana);
-    public static event UpdatePlayerMana OnUpdatePlayerMana;
+    public delegate void UpdatePlayerSpellCooldown(float currentProgress, int charges, int maxCharges);
     public static event UpdatePlayerSpell OnUpdatePlayerSpell;
+    public static event UpdatePlayerSpellCooldown OnUpdateLeftSpellCooldown;
+    public static event UpdatePlayerSpellCooldown OnUpdateRightSpellCooldown;
     public Spell leftSpell, rightSpell;
-    [SerializeField] private float _maxMana;
-    [SerializeField] private float _staminaRegenRate;
     [SerializeField] private InputActionReference _leftActionReference;
     [SerializeField] private InputActionReference _rightActionReference;
-    private float _currentMana;
     [SerializeField] private Transform playerLeftTransform;
     [SerializeField] private Transform playerRightTransform;
     [SerializeField] private Rigidbody _rb;
     private bool _canCastLeft = true;
     private bool _canCastRight = true;
+
+    private float leftSpellProgress;
+    private int leftSpellCharges;
+    private float rightSpellProgress;
+    private int rightSpellCharges;
+    private bool leftWasHeld = false;
+    private bool rightWasHeld = false;
     private void Start()
     {
-        _currentMana = _maxMana;
         OnUpdatePlayerSpell?.Invoke(leftSpell, rightSpell);
     }
     private void Update()
     {
         if (_leftActionReference.action.IsPressed())
             OnLeftSpell();
+        else
+            leftWasHeld = false;
         if (_rightActionReference.action.IsPressed())
             OnRightSpell();
+        else 
+            rightWasHeld = false;
+
+        if (leftSpell && leftSpellCharges < leftSpell.charges)
+        {
+            leftSpellProgress += Time.deltaTime;
+            if (leftSpellProgress >= leftSpell.coolDown) {
+                leftSpellCharges++;
+                leftSpellProgress = 0;
+            }
+            OnUpdateLeftSpellCooldown?.Invoke(leftSpellProgress/leftSpell.coolDown, leftSpellCharges, leftSpell.charges);
+        }
+        if (rightSpell && rightSpellCharges < rightSpell.charges)
+        {
+            rightSpellProgress += Time.deltaTime;
+            if (rightSpellProgress >= rightSpell.coolDown) {
+                rightSpellCharges++;
+                rightSpellProgress = 0;
+            }
+            OnUpdateRightSpellCooldown?.Invoke(rightSpellProgress/rightSpell.coolDown, rightSpellCharges, rightSpell.charges);
+        }
     }
     void OnLeftSpell ()
     {
         if (GameManager.instance.IsPaused || leftSpell == null) return;
-        bool canAffordSpell = _currentMana >= leftSpell.manaCost;
-        if (_canCastLeft && canAffordSpell && leftSpell != null)
+        if (!leftSpell.canBeHeld && leftWasHeld == true) return;
+        if (_canCastLeft && leftSpellCharges > 0 && leftSpell != null)
         {
             _canCastLeft = false;
             Invoke(nameof(DelayLeftSpell), leftSpell.castDelay);
-            _currentMana -= leftSpell.manaCost;
+            leftSpellCharges--;
             leftSpell.SummonSpell(playerLeftTransform, _rb.velocity, true);
-            OnUpdatePlayerMana?.Invoke(_currentMana, _maxMana);
         }
+        leftWasHeld = true;
     }
     void OnRightSpell()
     {
         if (GameManager.instance.IsPaused || rightSpell == null) return;
-        bool canAffordSpell = _currentMana >= rightSpell.manaCost;
-        if (_canCastRight && canAffordSpell && rightSpell != null)
+        if (!rightSpell.canBeHeld && rightWasHeld == true) return;
+        if (_canCastRight && rightSpellCharges > 0 && rightSpell != null)
         {
             _canCastRight = false;
             Invoke(nameof(DelayRightSpell), rightSpell.castDelay);
-            _currentMana -= rightSpell.manaCost;
+            rightSpellCharges--;
             rightSpell.SummonSpell(playerRightTransform, _rb.velocity, true);
-            OnUpdatePlayerMana?.Invoke(_currentMana, _maxMana);
         }
+        rightWasHeld = true;
     }
     public void SetSpell (Spell spell, int slot)
     {
-        if (slot == 0) leftSpell = spell;
-        else if (slot == 1) rightSpell = spell;
+        if (slot == 0)
+        {
+            leftSpell = spell;
+            leftSpellCharges = leftSpell.charges;
+            leftSpellProgress = 0f;
+            OnUpdateLeftSpellCooldown?.Invoke(leftSpellProgress / leftSpell.coolDown, leftSpellCharges, leftSpell.charges);
+        }
+        else if (slot == 1)
+        {
+            rightSpell = spell;
+            rightSpellCharges = rightSpell.charges;
+            rightSpellProgress = 0f;
+            OnUpdateRightSpellCooldown?.Invoke(rightSpellProgress/rightSpell.coolDown, rightSpellCharges, rightSpell.charges);
+        }
         OnUpdatePlayerSpell?.Invoke(leftSpell, rightSpell);
     }
     void DelayLeftSpell ()
@@ -71,10 +110,5 @@ public class PlayerSpells : MonoBehaviour
     void DelayRightSpell ()
     {
         _canCastRight = true;
-    }
-    private void FixedUpdate()
-    {
-        _currentMana = Mathf.Clamp(_currentMana + _staminaRegenRate, 0, _maxMana);
-        OnUpdatePlayerMana?.Invoke(_currentMana, _maxMana);
     }
 }

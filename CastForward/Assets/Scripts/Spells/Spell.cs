@@ -13,12 +13,14 @@ namespace SpellSystem
         [SerializeField] private GameObject _impactPrefab;
         [SerializeField] private float _projectileSpeed;
         [SerializeField] private float _damageMultiplier;
-        public float castDelay = 0.1f;
+        public float coolDown = 1f;
+        public float castDelay= 0.1f;
+        public int charges = 1;
+        public bool canBeHeld = false;
         [SerializeField] private bool _isAnchored = false;
         [SerializeField] private bool _inheritVelocity = false;
         [SerializeField] private CollisionType _collisionType;
 
-        public float manaCost;
         public float ProjectileSpeed { get { return _projectileSpeed; } }
 
         public void SummonSpell(Transform castPoint, Vector3 velocity, bool spawnedByPlayer)

@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 3938387599749591598}
   - component: {fileID: 1620134293656695706}
   - component: {fileID: 7840242800547634492}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: hexMiddle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
