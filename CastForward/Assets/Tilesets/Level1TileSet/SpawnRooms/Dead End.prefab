@@ -736,7 +736,7 @@ MonoBehaviour:
   _fadeTime: 0.7
   _fadeImage: {fileID: 4379977511026275499}
   _fadeOnStart: 1
-  _isFaded: 1
+  _isFaded: 0
 --- !u!1 &3547013230498856914
 GameObject:
   m_ObjectHideFlags: 0

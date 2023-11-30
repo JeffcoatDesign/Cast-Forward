@@ -2633,7 +2633,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 125.5376, y: 81.4923}
+  m_SizeDelta: {x: 138.3511, y: 81.4923}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &2376266863323750728
 CanvasRenderer:
@@ -2663,7 +2663,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[Shift- Sprint
+  m_text: '[Shift]- Sprint
 
     [C]- Crouch
 
