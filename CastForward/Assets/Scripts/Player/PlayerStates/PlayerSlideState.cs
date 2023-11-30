@@ -29,7 +29,7 @@ namespace PlayerStates {
                 return;
             bool hasNoVelocity = _pc.rb.velocity.magnitude <= 0.5f;
             if (Physics.Raycast(_pc.transform.position, Vector3.up, 1.5f))
-                _pc.rb.AddForce(_pc.transform.forward * 5, ForceMode.Impulse);
+                _pc.rb.AddForce(_pc.transform.forward, ForceMode.Impulse);
             else if (!_pc.IsCrouching && _pc.MovementInput.magnitude == 0 && hasNoVelocity) {
                 _pc.StopAllCoroutines();
                 _pc.SetState(new PlayerStandingState());

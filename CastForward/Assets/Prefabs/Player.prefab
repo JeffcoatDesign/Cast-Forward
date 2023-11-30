@@ -594,10 +594,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2784685355755732924}
   _playerVCamController: {fileID: 2681463140299441452}
-  _playerSpeed: 5000
+  _playerSpeed: 550000
   _strafeModifier: 0.9
   _reverseModifier: 0.8
-  _sprintModifier: 2
+  _sprintModifier: 1.3
   _crouchModifier: 0.7
   _jumpPower: 3500
   _maxWallRunTime: 1
@@ -800,8 +800,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftSpell: {fileID: 0}
   rightSpell: {fileID: 0}
-  _maxMana: 100
-  _staminaRegenRate: 0.5
   _leftActionReference: {fileID: -7716467325908271637, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
   _rightActionReference: {fileID: 717136412852350348, guid: f8c1fea80f4ae9c49b7ae7fc1adcef79, type: 3}
   playerLeftTransform: {fileID: 8791869015563189880}

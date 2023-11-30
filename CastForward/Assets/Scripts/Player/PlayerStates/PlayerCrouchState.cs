@@ -31,7 +31,7 @@ namespace PlayerStates
                 Vector3 inputVector = new(_pc.MovementInput.x * _pc.PlayerSpeed * _pc.StrafeModifier * _pc.CrouchModifier,
                     0, _pc.MovementInput.y * _pc.PlayerSpeed * _pc.CrouchModifier);
                 inputVector = _pc.CameraForward * inputVector;
-                _pc.rb.AddForce(inputVector, ForceMode.Force);
+                _pc.rb.AddForce(inputVector * Time.deltaTime, ForceMode.Force);
             }
             else if (!_pc.IsCrouching && _pc.MovementInput.magnitude == 0)
                 _pc.SetState(new PlayerStandingState());
@@ -46,7 +46,7 @@ namespace PlayerStates
                 if (inputVector.z < 0) inputVector.z *= _pc.ReverseModifier;
                 else inputVector *= _pc.SprintSpeed;
                 inputVector = _pc.CameraForward * inputVector;
-                _pc.rb.AddForce(inputVector, ForceMode.Force);
+                _pc.rb.AddForce(inputVector * Time.deltaTime, ForceMode.Force);
             }
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,6 +8,8 @@ public class EnemyStateMachine : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private AudioClip[] _walkSounds;
+    private bool _isMelee;
+    public bool IsMelee { get { return IsMelee; } set { _isMelee = value; } }
     private float _walkSoundSpacing = 0.2f;
     public EnemyEntity enemyEntity;
     private Vector3 lastPosition;
@@ -18,7 +21,7 @@ public class EnemyStateMachine : MonoBehaviour
     {
         OnResurrected ??= new ();
         _enemyAI = GetComponent<EnemyAI> ();
-        StartCoroutine(StartStaticAnim("Spawn"));
+        StartCoroutine(StartStaticAnim(_animator.GetCurrentAnimatorClipInfo(0)[0].clip.length));
     }
     public void OnEnable()
     {
@@ -36,12 +39,23 @@ public class EnemyStateMachine : MonoBehaviour
     private void Die ()
     {
         StartCoroutine(StartStaticAnim("Fall1"));
-        weaponHitbox.isAttacking = false;
+        if (_isMelee) weaponHitbox.isAttacking = false;
     }
 
-    public void Attack ()
+    public void StartTrigger (string trigger, bool isStatic = true, float duration = -1f,string animFloat = "")
     {
-        StartCoroutine(StartStaticAnim("Attack1h1"));
+        if (isStatic && duration < 0)
+            StartCoroutine(StartStaticAnim(trigger));
+        else
+            _animator.SetTrigger(trigger);
+        float animLength = _animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        if (duration > 0f && animFloat != "")
+        {
+            float offset = duration / animLength;
+            _animator.SetFloat(animFloat, offset);
+            if (isStatic)
+                StartCoroutine(StartStaticAnim(animLength * offset));
+        }
     }
     public void GetHit ()
     {
@@ -69,7 +83,8 @@ public class EnemyStateMachine : MonoBehaviour
         }
         lastPosition = transform.position;
 
-        weaponHitbox.isAttacking = _animator.GetCurrentAnimatorStateInfo(0).IsName("Attack1h1");
+        if (_isMelee)
+            weaponHitbox.isAttacking = _animator.GetCurrentAnimatorStateInfo(0).IsName("Attack1h1");
     }
 
     IEnumerator StartStaticAnim(string name)
@@ -77,6 +92,14 @@ public class EnemyStateMachine : MonoBehaviour
         _enemyAI.inStaticAnimation = true;
         _animator.SetTrigger(name);
         yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+        _enemyAI.inStaticAnimation = false;
+
+        yield return null;
+    }
+    IEnumerator StartStaticAnim(float length)
+    {
+        _enemyAI.inStaticAnimation = true;
+        yield return new WaitForSeconds(length);
         _enemyAI.inStaticAnimation = false;
 
         yield return null;

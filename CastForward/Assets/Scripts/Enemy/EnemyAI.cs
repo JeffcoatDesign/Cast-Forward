@@ -24,7 +24,6 @@ public class EnemyAI : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
     public UnityEvent Attack;
-    public float projectileForce = 0.1f;
 
     private void Awake()
     {
@@ -83,12 +82,7 @@ public class EnemyAI : MonoBehaviour
     }
     public void AttackPlayer()
     {
-        float projectileTimeToTarget = (Vector3.Distance(transform.position, _player.transform.position)) / projectileForce;
-        float randMod = Random.Range(0.9f, 1.1f);
-        projectileTimeToTarget *= randMod;
         navMeshAgent.SetDestination(transform.position);
-        transform.LookAt(_player.transform.position + _player.rb.velocity * projectileTimeToTarget,Vector3.up);
-        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
 
         if (!isAttacking)
         {

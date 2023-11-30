@@ -15,6 +15,7 @@ namespace SpellSystem
         [SerializeField] private float _damageMultiplier;
         public float coolDown = 1f;
         public float castDelay= 0.1f;
+        public float castingTime= 3f;
         public int charges = 1;
         public bool canBeHeld = false;
         [SerializeField] private bool _isAnchored = false;

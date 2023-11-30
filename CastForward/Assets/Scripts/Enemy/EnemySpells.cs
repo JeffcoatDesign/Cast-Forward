@@ -3,41 +3,57 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using SpellSystem;
+using Unity.VisualScripting;
 
 public class EnemySpells : MonoBehaviour
 {
-    public Spell[] enemySpells;
-    private Spell selectedSpell;
+    [SerializeField] private Spell spell;
     private EnemyAI enemyAI;
     [SerializeField] private Transform spellTransform;
-    [SerializeField] private float _maxMana = 100f;
-    [SerializeField] private float _manaRegenSpeed = 0.1f;
     private Rigidbody _rb;
-    private float _currentMana;
+    private PlayerController _playerController;
+    private EnemyStateMachine _enemyStateMachine;
+    private int charges;
+    private int maxCharges;
+    private float coolDownTime;
+    bool canCast = true;
     private void Awake()
     {
         enemyAI = GetComponent<EnemyAI>();
         _rb = GetComponent<Rigidbody>();
-        _currentMana = _maxMana;   
-        SelectSpell();
+        _enemyStateMachine = GetComponent<EnemyStateMachine>();
+        _playerController = FindFirstObjectByType<PlayerController>();
+        if (_enemyStateMachine != null)
+        {
+            _enemyStateMachine.IsMelee = false;
+        }
+        charges = spell.charges;
+        maxCharges = spell.charges;
     }
     public void OnSpellAttack()
     {
-        selectedSpell.SummonSpell(spellTransform, _rb.velocity, false);
-        //_currentMana -= selectedSpell.manaCost;
-        SelectSpell();
+        if (!canCast && charges < 1) return;
+        float castTime = spell.castingTime;
+        _enemyStateMachine.StartTrigger("Cast",true,castTime,"castSpeed");
+        StartCoroutine(SpawnSpell(castTime/2));
+        StartCoroutine(PauseCasting(castTime));
     }
-    void SelectSpell()
+    private IEnumerator SpawnSpell (float spawnTime)
     {
-        if (enemySpells.Length < 1) return;
-        //Spell[] affordableSpells = enemySpells.Where(sp => sp.manaCost <= _currentMana).ToArray();
-        //if (affordableSpells.Length < 1) return;
-        //int randomIndex = Random.Range(0, affordableSpells.Length);
-        //selectedSpell = affordableSpells[randomIndex];
-        enemyAI.projectileForce = selectedSpell.ProjectileSpeed;
+        yield return new WaitForSeconds(spawnTime);
+
+        spell.SummonSpell(spellTransform, _rb.velocity, false);
     }
-    private void FixedUpdate()
+    private IEnumerator PauseCasting (float castTime)
     {
-        _currentMana = Mathf.Clamp(_currentMana + _manaRegenSpeed, 0, _maxMana);
+        canCast = false;
+        yield return new WaitForSeconds(castTime);
+        canCast = true;
+        yield return null;
+    }
+    private void Update()
+    {
+        if (_playerController != null)
+            spellTransform.LookAt(_playerController.transform.position);
     }
 }

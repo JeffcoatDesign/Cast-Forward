@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private bool spawnOnLevelGenerated = true;
     private void OnEnable()
     {
@@ -24,6 +24,8 @@ public class EnemySpawner : MonoBehaviour
 
     public EnemyAI GetSpawnedEnemy()
     {
+        int randIndex = Random.Range(0, enemyPrefabs.Length);
+        var enemyPrefab = enemyPrefabs[randIndex];
         NavMeshHit closestHit;
         if (NavMesh.SamplePosition(transform.position, out closestHit, 10, 1))
         {
