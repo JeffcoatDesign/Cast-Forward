@@ -11,7 +11,11 @@ public class AudioSlider : MonoBehaviour {
         if (PlayerPrefs.HasKey(audioType.ToString()))
             slider.value = PlayerPrefs.GetFloat(audioType.ToString());
     }
-    public void SetAudioValue(float value) { 
-        if (AudioManager.Instance != null) AudioManager.Instance.SetVolume(audioType, value); 
+    public void SetAudioValue(float value) {
+        if (AudioManager.Instance != null) {
+            AudioManager.Instance.SetVolume(audioType, value);
+            if (value <= -20f) AudioManager.Instance.SetMute(audioType, true);
+            else AudioManager.Instance.SetMute(audioType, false);
+        } 
     }
 }

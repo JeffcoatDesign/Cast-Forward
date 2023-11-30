@@ -34,7 +34,7 @@ namespace PlayerStates {
             if (inputVector.z < 0) inputVector.z *= _pc.ReverseModifier;
             inputVector *= _pc.SprintSpeed;
             inputVector = _pc.CameraForward * inputVector;
-            _pc.rb.AddForce(inputVector * Time.deltaTime, ForceMode.Force);
+            _pc.rb.AddForce(inputVector, ForceMode.Force);
 
             if (!_pc.jumpPressed) _jumpHasReleased = true;
 

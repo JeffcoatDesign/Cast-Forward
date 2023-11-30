@@ -594,7 +594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2784685355755732924}
   _playerVCamController: {fileID: 2681463140299441452}
-  _playerSpeed: 550000
+  _playerSpeed: 5500
   _strafeModifier: 0.9
   _reverseModifier: 0.8
   _sprintModifier: 1.3

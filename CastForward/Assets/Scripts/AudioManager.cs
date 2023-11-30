@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
+using static UnityEngine.Rendering.DebugUI;
 
 public enum AudioType { 
     Master,
@@ -29,16 +32,30 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    // Start is called before the first frame update
+    
     void Start()
     {
-        if (PlayerPrefs.HasKey(AudioType.Master.ToString()))
-            audioMixer.SetFloat(AudioType.Master.ToString(), PlayerPrefs.GetFloat(AudioType.Master.ToString()));
-        if (PlayerPrefs.HasKey(AudioType.SFX.ToString()))
-            audioMixer.SetFloat(AudioType.SFX.ToString(), PlayerPrefs.GetFloat(AudioType.SFX.ToString()));
-        if (PlayerPrefs.HasKey(AudioType.Music.ToString()))
-            audioMixer.SetFloat(AudioType.Music.ToString(), PlayerPrefs.GetFloat(AudioType.Music.ToString()));
+        GetFloatFromPrefs(AudioType.Master);
+        GetBoolFromPrefs(AudioType.Master);
+        GetFloatFromPrefs(AudioType.Music);
+        GetBoolFromPrefs(AudioType.Music);
+        GetFloatFromPrefs(AudioType.SFX);
+        GetBoolFromPrefs(AudioType.SFX);
         PlayerPrefs.Save();
+    }
+
+    private void GetFloatFromPrefs(AudioType audioType)
+    {
+        if (PlayerPrefs.HasKey(audioType.ToString()))
+            audioMixer.SetFloat(audioType.ToString(), PlayerPrefs.GetFloat(audioType.ToString()));
+    }
+    private void GetBoolFromPrefs(AudioType audioType)
+    {
+        string key = audioType.ToString() + "Muted";
+        if (PlayerPrefs.HasKey(key)) {
+            if (PlayerPrefs.GetInt(key, 0) == 0)
+                audioMixer.SetFloat(audioType.ToString(), -80f);
+        }
     }
 
     public float PlaySound(string audioPath, AudioType audioType, Transform parent)
@@ -99,5 +116,23 @@ public class AudioManager : MonoBehaviour
             yield return new WaitForSeconds(fadeSpeed);
         }
         yield return null;
+    }
+
+     public void SetMute(AudioType audioType, bool v)
+    {
+        string key = audioType.ToString() + "Muted";
+        if (v)
+        {
+            audioMixer.SetFloat(audioType.ToString(), -80);
+            PlayerPrefs.SetInt(key, 0);
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            audioMixer.SetFloat(audioType.ToString(), PlayerPrefs.GetFloat(audioType.ToString()));
+            PlayerPrefs.SetInt(key, 1);
+            PlayerPrefs.Save();
+        }
+        GetBoolFromPrefs(audioType);
     }
 }

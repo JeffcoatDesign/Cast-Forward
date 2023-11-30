@@ -35,13 +35,10 @@ public class EnemySpells : MonoBehaviour
         if (!canCast && charges < 1) return;
         float castTime = spell.castingTime;
         _enemyStateMachine.StartTrigger("Cast",true,castTime,"castSpeed");
-        StartCoroutine(SpawnSpell(castTime/2));
         StartCoroutine(PauseCasting(castTime));
     }
-    private IEnumerator SpawnSpell (float spawnTime)
+    public void CastSpell ()
     {
-        yield return new WaitForSeconds(spawnTime);
-
         spell.SummonSpell(spellTransform, _rb.velocity, false);
     }
     private IEnumerator PauseCasting (float castTime)

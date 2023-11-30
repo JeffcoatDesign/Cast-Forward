@@ -6,6 +6,7 @@ v0.1.7
 + Added Spawn Animation to Immerse Players
 + Added Ranged Enemies to Increase Challenge
 + Replaced Mana With Spell Cooldowns to Balance Spells
++ Fixed Audio Sliders So Volume Control is Better
   
 v0.1.6
 + Added Gate Traps to Force Cowards into Combat

@@ -1079,6 +1079,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3770049640320673812}
   - component: {fileID: 3824285673694655088}
+  - component: {fileID: 8335677718089547405}
   m_Layer: 0
   m_Name: SKELETON
   m_TagString: Untagged
@@ -1125,6 +1126,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8335677718089547405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3766604631977712040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122bcec7906c54e4da4d6721adcdb56f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnAnimCastSpell:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3441424236020676062}
+        m_TargetAssemblyTypeName: EnemySpells, Assembly-CSharp
+        m_MethodName: CastSpell
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3766612437206127222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,7 +1845,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  projectileForce: 1
 --- !u!114 &7749380103477771865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1885,7 +1912,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b4fd3cdb386bf0443a17c76871ffe957, type: 3}
   - {fileID: 8300000, guid: 3f84421f44037b041a28debbb3a6e298, type: 3}
   - {fileID: 8300000, guid: 15f5e0403c5c13243b41439a6ec3fa00, type: 3}
-  _isMelee: 1
   enemyEntity: {fileID: 7749380103477771865}
   weaponHitbox: {fileID: 0}
   OnResurrected:
