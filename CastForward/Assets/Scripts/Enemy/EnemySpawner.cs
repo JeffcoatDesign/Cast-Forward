@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private bool spawnOnLevelGenerated = true;
+    [SerializeField] private float maxSpawnDistance = 5;
     private void OnEnable()
     {
         if (spawnOnLevelGenerated)
@@ -27,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
         int randIndex = Random.Range(0, enemyPrefabs.Length);
         var enemyPrefab = enemyPrefabs[randIndex];
         NavMeshHit closestHit;
-        if (NavMesh.SamplePosition(transform.position, out closestHit, 10, 1))
+        if (NavMesh.SamplePosition(transform.position, out closestHit, maxSpawnDistance, 1))
         {
             GameObject enemy = Instantiate(enemyPrefab);
             enemy.transform.position = closestHit.position;

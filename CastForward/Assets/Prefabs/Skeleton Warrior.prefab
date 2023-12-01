@@ -1906,7 +1906,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  projectileForce: 1
 --- !u!114 &7749380103477771865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1931,8 +1930,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6583740149842715992}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 2
+  m_Drag: 3
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -1946,9 +1945,9 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &333381435124399703
 MonoBehaviour:
@@ -1974,7 +1973,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b4fd3cdb386bf0443a17c76871ffe957, type: 3}
   - {fileID: 8300000, guid: 3f84421f44037b041a28debbb3a6e298, type: 3}
   - {fileID: 8300000, guid: 15f5e0403c5c13243b41439a6ec3fa00, type: 3}
-  _isMelee: 1
   enemyEntity: {fileID: 7749380103477771865}
   weaponHitbox: {fileID: 8405844672093365020}
   OnResurrected:

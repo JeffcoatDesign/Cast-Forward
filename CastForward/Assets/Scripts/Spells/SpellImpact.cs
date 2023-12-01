@@ -10,7 +10,7 @@ namespace SpellSystem
         public float damageMultiplier;
         public CollisionType collisionType;
         public bool spawnedByPlayer;
-        private float _spellLifetime = 3f;
+        [SerializeField] private float _spellLifetime = 3f;
         private float _spellStart;
         private void Start()
         {

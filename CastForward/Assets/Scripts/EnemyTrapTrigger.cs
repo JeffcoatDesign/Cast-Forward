@@ -33,6 +33,10 @@ public class EnemyTrapTrigger : MonoBehaviour
                 }
             }
         }
+        if (enemyCount <= 0)
+        {
+            OnAllEnemiesDied.Invoke();
+        }
     }
 
     private void RemoveEnemy()

@@ -44,6 +44,8 @@ public class EnemyStateMachine : MonoBehaviour
 
     public void StartTrigger (string trigger, bool isStatic = true, float duration = -1f,string animFloat = "")
     {
+        if (!enemyEntity.isAlive) return;
+        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Fall1")) return;
         if (isStatic && duration < 0)
             StartCoroutine(StartStaticAnim(trigger));
         else
@@ -60,7 +62,8 @@ public class EnemyStateMachine : MonoBehaviour
     public void GetHit ()
     {
         StartCoroutine(StartStaticAnim("Hit1"));
-        weaponHitbox.isAttacking = false;
+        if (_isMelee)
+            weaponHitbox.isAttacking = false;
     }
 
     void Resurrect ()
@@ -80,6 +83,7 @@ public class EnemyStateMachine : MonoBehaviour
         if (enemyEntity.isAlive)
         {
             _animator.SetFloat("speedh", speed);
+            _animator.SetBool("Dead", !enemyEntity.isAlive);
         }
         lastPosition = transform.position;
 

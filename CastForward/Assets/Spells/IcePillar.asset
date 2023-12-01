@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3483726d431f4204ea45d15aa81c0740, type: 3}
+  m_Name: IcePillar
+  m_EditorClassIdentifier: 
+  ItemName: Ice Pillar Spell
+  itemPrefab: {fileID: 5734729433855749561, guid: c83bfb52ed2be2c4188fa334600c8916, type: 3}
+  mesh: {fileID: 381947130776709163, guid: 540dab26906ae154dbaf81f7f7addacb, type: 3}
+  material: {fileID: 2100000, guid: 6e9b30f96f82d324fad0975226fd4928, type: 2}
+  inventorySprite: {fileID: 21300000, guid: fdb4bb1ea83f23a40912ff3907afbf07, type: 3}
+  _projectilePrefab: {fileID: 8851630694450285993, guid: c5777b245fb87e94aba47f394332201c, type: 3}
+  _impactPrefab: {fileID: 3727854980964702346, guid: 94e4b51414283cc4ca0dae927b273b8a, type: 3}
+  _projectileSpeed: 15
+  _damageMultiplier: 40
+  coolDown: 4
+  castDelay: 0.1
+  castingTime: 3
+  charges: 1
+  canBeHeld: 0
+  _isAnchored: 0
+  _inheritVelocity: 0
+  _collisionType: 0

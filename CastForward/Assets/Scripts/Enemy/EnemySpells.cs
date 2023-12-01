@@ -33,6 +33,7 @@ public class EnemySpells : MonoBehaviour
     public void OnSpellAttack()
     {
         if (!canCast && charges < 1) return;
+        
         float castTime = spell.castingTime;
         _enemyStateMachine.StartTrigger("Cast",true,castTime,"castSpeed");
         StartCoroutine(PauseCasting(castTime));

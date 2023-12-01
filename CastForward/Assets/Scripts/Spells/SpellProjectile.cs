@@ -28,6 +28,8 @@ namespace SpellSystem {
         {
             SpellImpact impact = Instantiate(impactPrefab).GetComponent<SpellImpact>();
             impact.transform.position = targetPosition;
+            Vector3 flatRotation = new Vector3(0, transform.rotation.eulerAngles.y, 0);
+            impact.transform.rotation = Quaternion.Euler(flatRotation);
             impact.damageMultiplier = damageMultiplier;
             impact.collisionType = collisionType;
             impact.spawnedByPlayer = spawnedByPlayer;
