@@ -26,7 +26,7 @@ namespace PlayerStates
         {
             if (_pc == null)
                 return;
-            if (Physics.Raycast(_pc.transform.position, Vector3.up, 1.5f))
+            if (Physics.Raycast(_pc.transform.position, Vector3.up, 1.5f, _pc.WhatBlocksStanding))
             {
                 Vector3 inputVector = new(_pc.MovementInput.x * _pc.PlayerSpeed * _pc.StrafeModifier * _pc.CrouchModifier,
                     0, _pc.MovementInput.y * _pc.PlayerSpeed * _pc.CrouchModifier);

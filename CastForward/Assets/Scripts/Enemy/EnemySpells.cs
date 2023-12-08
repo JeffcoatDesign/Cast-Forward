@@ -27,6 +27,10 @@ public class EnemySpells : MonoBehaviour
         {
             _enemyStateMachine.IsMelee = false;
         }
+        if (LevelGenerator.instance != null)
+        {
+            spell = LevelGenerator.instance.GetEnemySpell();
+        }
         charges = spell.charges;
         maxCharges = spell.charges;
     }

@@ -609,10 +609,13 @@ MonoBehaviour:
     m_Bits: 64
   _whatIsGround:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 192
   _whatIsInteractable:
     serializedVersion: 2
     m_Bits: 1024
+  _whatBlocksStanding:
+    serializedVersion: 2
+    m_Bits: 449
   _playerCursor: {fileID: 7544939699010860679}
   isGrounded: 1
   jumpPressed: 0

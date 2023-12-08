@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 806096326029678102}
   - component: {fileID: 4377962834944421273}
   - component: {fileID: 3873549488506876852}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: earth8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6258082457766234662}
   - component: {fileID: 51003335015896070}
   - component: {fileID: 5682343658430532916}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: earth5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 8517332846748826274}
   - component: {fileID: 5297247177623951328}
   - component: {fileID: 2217802002095874491}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: earth2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2131592873643890435}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: earthparent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 7463572174632266811}
   - component: {fileID: 4347659851263576038}
   - component: {fileID: 8528366618193436997}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: earth10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 8205819669840074391}
   - component: {fileID: 4888028182387410540}
   - component: {fileID: 1240359014253854956}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5217,7 +5217,7 @@ GameObject:
   - component: {fileID: 1084707080456426395}
   - component: {fileID: 5500626043884950055}
   - component: {fileID: 3338139220205770165}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10045,7 +10045,7 @@ GameObject:
   - component: {fileID: 6001712940225239496}
   - component: {fileID: 835734378161539303}
   - component: {fileID: 3557168928552089201}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: earth11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10129,7 +10129,7 @@ GameObject:
   - component: {fileID: 6481681864848405113}
   - component: {fileID: 953923121674188290}
   - component: {fileID: 3433850751415431207}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: earth3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10212,7 +10212,7 @@ GameObject:
   - component: {fileID: 4645620716186482355}
   - component: {fileID: 8635464237913913622}
   - component: {fileID: 5779142728145325532}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: earth1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10296,7 +10296,7 @@ GameObject:
   - component: {fileID: 7898897698797703687}
   - component: {fileID: 5306058273574986193}
   - component: {fileID: 62572284309265375}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: earth4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10380,7 +10380,7 @@ GameObject:
   - component: {fileID: 1347131045740310137}
   - component: {fileID: 2911158145471856748}
   - component: {fileID: 6070065331382692634}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15208,7 +15208,7 @@ GameObject:
   - component: {fileID: 4631538520677334305}
   - component: {fileID: 9095890213982006110}
   - component: {fileID: 6077154271563396994}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: earth7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15291,7 +15291,7 @@ GameObject:
   - component: {fileID: 4672729563132387106}
   - component: {fileID: 5945226333772445472}
   - component: {fileID: 8351118162362626345}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: earth9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15374,7 +15374,7 @@ GameObject:
   - component: {fileID: 5820480325636412528}
   - component: {fileID: 2932083562628776978}
   - component: {fileID: 5071729375696239766}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20202,7 +20202,7 @@ GameObject:
   - component: {fileID: 4864446820144534133}
   - component: {fileID: 6541913724116184923}
   - component: {fileID: 5880528471387789505}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: earth6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20285,7 +20285,7 @@ GameObject:
   - component: {fileID: 5377303365065551010}
   - component: {fileID: 2456752830541330696}
   - component: {fileID: 2239476575242738920}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25113,7 +25113,7 @@ GameObject:
   - component: {fileID: 3132891509271061556}
   - component: {fileID: 5855473388034388588}
   - component: {fileID: 3181836512532838150}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29941,7 +29941,7 @@ GameObject:
   - component: {fileID: 2501112140960793316}
   - component: {fileID: 5570829488748117432}
   - component: {fileID: 162459930631203708}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: earth12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30024,8 +30024,8 @@ GameObject:
   - component: {fileID: 6778323605958389975}
   - component: {fileID: -3142351880173965873}
   - component: {fileID: 1671143325947619644}
-  - component: {fileID: 3304531641786351303}
-  m_Layer: 0
+  - component: {fileID: 2391418637181620077}
+  m_Layer: 9
   m_Name: EarthquakeImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30086,8 +30086,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!135 &3304531641786351303
-SphereCollider:
+--- !u!65 &2391418637181620077
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -30105,5 +30105,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

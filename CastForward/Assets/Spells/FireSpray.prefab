@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3681148430018127654}
   - component: {fileID: 7000308096013253995}
   - component: {fileID: 5060731861350761894}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4867,7 +4867,7 @@ GameObject:
   - component: {fileID: 662336104142801692}
   - component: {fileID: 1546895523632912595}
   - component: {fileID: 5363162536085044032}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FireSpray
   m_TagString: Untagged
   m_Icon: {fileID: 0}

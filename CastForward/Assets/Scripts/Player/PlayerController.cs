@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask _whatIsWall;
     [SerializeField] private LayerMask _whatIsGround;
     [SerializeField] private LayerMask _whatIsInteractable;
+    [SerializeField] private LayerMask _whatBlocksStanding;
     [SerializeField] private Transform _playerCursor;
     private bool _sprintActive = false;
     private bool _crouchActive = false;
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour
     public float WallDutchAngle { get { return _wallDutchAngle; } }
     public LayerMask WhatIsWall { get { return _whatIsWall; } }
     public LayerMask WhatIsGround { get { return _whatIsGround; } }
+    public LayerMask WhatBlocksStanding { get { return _whatBlocksStanding; } }
     public Vector2 MovementInput { get { return _movementInput; } }
     public PlayerVCamController PlayerVCamController { get { return _playerVCamController; } }
     public Quaternion CameraForward { get {

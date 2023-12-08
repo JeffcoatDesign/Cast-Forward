@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using MapUtility;
+using SpellSystem;
+
 public class LevelGenerator : MonoBehaviour
 {
     public delegate void GetNavMesh();
@@ -18,6 +20,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private GameObject portalPrefab;
     [SerializeField] private AudioClip songToPlay;
     [SerializeField] Item[] _loot;
+    [SerializeField] Spell[] _enemySpells;
     public string nextLevel;
     public static LevelGenerator instance;
     public Item[] Loot { get { return _loot; } }
@@ -60,5 +63,11 @@ public class LevelGenerator : MonoBehaviour
             }
         }
         return Quaternion.Euler(0, 30 + 60 * (int)direction, 0);
+    }
+
+    public Spell GetEnemySpell()
+    {
+        int index = Random.Range(0, _enemySpells.Length);
+        return _enemySpells[index];
     }
 }

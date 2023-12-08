@@ -310,6 +310,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dd4272416664c3741a7e4b301f45e5a3, type: 2}
   - {fileID: 11400000, guid: 88b4525849201ab4cbec2a9461d446da, type: 2}
   - {fileID: 11400000, guid: bf085387c5450fe44958025e3d7d42d9, type: 2}
+  _enemySpells:
+  - {fileID: 11400000, guid: de7c88ddbe694104595eaee196f44054, type: 2}
+  - {fileID: 11400000, guid: bf085387c5450fe44958025e3d7d42d9, type: 2}
+  - {fileID: 11400000, guid: 4bc38b52f9117b540bf7834a12f635f8, type: 2}
+  - {fileID: 11400000, guid: 88b4525849201ab4cbec2a9461d446da, type: 2}
+  - {fileID: 11400000, guid: 604494daf4a1f7644988c22406df0afb, type: 2}
+  - {fileID: 11400000, guid: a2cdc8d7b71a7c949a48a306d06e97f8, type: 2}
   nextLevel: Credits
 --- !u!1 &1083544939
 GameObject:

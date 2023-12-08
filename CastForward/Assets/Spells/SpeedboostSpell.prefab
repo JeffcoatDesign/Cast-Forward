@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 854480114391336042}
   - component: {fileID: 5062996324027269008}
   - component: {fileID: 2775433476780760996}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4856,7 +4856,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1683195829495871711}
   - component: {fileID: 6161953986164270928}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SpeedboostSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4898,5 +4898,3 @@ MonoBehaviour:
   spawnedByPlayer: 0
   spellLifetime: 0.5
   spellStart: 0
-  canHitEnemy: 0
-  canHitPlayer: 0

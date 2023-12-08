@@ -21,21 +21,30 @@ namespace SpellSystem
         }
         private void OnTriggerStay(Collider other)
         {
-            if (other.CompareTag("Enemy"))
+            Entity entity = other.GetComponent<Entity>();
+            if (entity == null) return;
+            bool targetEnemies = collisionType == CollisionType.Neutral ||
+                (spawnedByPlayer && collisionType == CollisionType.Enemy) ||
+                (!spawnedByPlayer && collisionType == CollisionType.Ally);
+            bool targetPlayer = collisionType == CollisionType.Neutral ||
+                (!spawnedByPlayer && collisionType == CollisionType.Enemy) ||
+                (spawnedByPlayer && collisionType == CollisionType.Ally);
+            if (targetEnemies && other.CompareTag("Enemy"))
             {
-                Entity entity = other.GetComponent<Entity>();
+                if (!_entities.Contains(entity))
+                    _entities.Add(entity);
+            }
+            if (targetPlayer && other.CompareTag("Player"))
+            {
                 if (!_entities.Contains(entity))
                     _entities.Add(entity);
             }
         }
         private void OnTriggerExit(Collider other)
         {
-            if (other.CompareTag("Enemy"))
-            {
-                Entity entity = other.GetComponent<Entity>();
-                if (_entities.Contains(entity))
-                    _entities.Remove(entity);
-            }
+            Entity entity = other.GetComponent<Entity>();
+            if (entity != null && _entities.Contains(entity))
+                _entities.Remove(entity);
         }
         public override void OnHit(Collider other) { }
         public void Visit(SpellArc visitor)

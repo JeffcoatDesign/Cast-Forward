@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9026005411244466611}
   - component: {fileID: 1419532478249537951}
   - component: {fileID: 8257447466769434657}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4954,7 +4954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6925074189372084837}
   - component: {fileID: 5380099852256262806}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5084,7 +5084,7 @@ GameObject:
   - component: {fileID: 5366208379864652449}
   - component: {fileID: 1415342959004143970}
   - component: {fileID: 7063036459012671821}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: lightningSpell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
