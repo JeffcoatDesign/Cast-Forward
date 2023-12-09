@@ -2,6 +2,12 @@
 https://jeffcoatdesign.github.io/Cast-Forward/
 # Changelog:
 
+v0.1.8
++ Added Ice Pillar Spell and Earthquake Spell to Give Players More Options
++ Gave Wizards Hats To Make Them More Obvious
++ Fixed NavMesh Issues
++ Fixed Sliding Issues  
+
 v0.1.7
 + Added Spawn Animation to Immerse Players
 + Added Ranged Enemies to Increase Challenge
