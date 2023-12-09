@@ -95,6 +95,10 @@ v0.0.1
 # Third-Party Assets
 RPG Skeleton  
 https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/rpg-skeleton-35463  
+"Cold Sanctuary"
+https://opengameart.org/content/cold-sanctuary-rpg-orchestral-essentials-dungeon-music
+"Path to Lake Land"
+https://opengameart.org/content/path-to-lake-land
 
 
 # References
