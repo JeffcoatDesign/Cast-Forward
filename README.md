@@ -1,7 +1,7 @@
 # Cast-Forward
 https://jeffcoatdesign.github.io/Cast-Forward/
 # The Project
-This assignment gave us free reign to create a game on our own, over the course of a few months. I chose to create a roguelike dungeon crawler, so I could explore the realm of procedural generation and the algorithms behind them.
+This assignment gave us free reign to create a game on our own, over the course of a few months. I chose to create a roguelike dungeon crawler, so I could explore the realm of procedural generation and the algorithms behind it. I had already designed much of the system prior to the semester, so I was also able to dive into the creation of a spell system.
 # Changelog:
 
 v0.1.8
